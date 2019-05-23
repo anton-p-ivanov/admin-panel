@@ -1,0 +1,26 @@
+[
+  {
+    "code": "USER_RESET",
+    "sender": "{{SITE_EMAIL}}",
+    "recipient": "{{USER_EMAIL}}",
+    "subject": "Запрос на смену пароля"
+  },
+  {
+    "code": "USER_REGISTER",
+    "sender": "{{SITE_EMAIL}}",
+    "recipient": "{{USER_EMAIL}}",
+    "subject": "Уведомление о регистрации нового пользователя"
+  },
+  {
+    "code": "ACCOUNT_CODE",
+    "sender": "{{SITE_EMAIL}}",
+    "recipient": "{{ACCOUNT_EMAIL}}",
+    "subject": "Изменён регистрационный код вашей компании"
+  },
+  {
+    "code": "ACCOUNT_CODE_ADMIN",
+    "sender": "{{SITE_EMAIL}}",
+    "recipient": "webmaster@aladdin-rd.ru",
+    "subject": "Изменён регистрационный код компании"
+  }
+]

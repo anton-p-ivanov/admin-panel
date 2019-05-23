@@ -1,0 +1,45 @@
+{{ form_start(form, params) }}
+<div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title">{{ title }}</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body" style="height:560px;">
+            {{ include('tabs.html.twig', {'tabs': [
+                {
+                    'title': 'Форма',
+                    'target': 'form-base',
+                    'view': 'forms/forms/_form.base.html.twig'
+                },
+                {
+                    'title': 'Шаблон',
+                    'target': 'form-template',
+                    'view': 'forms/forms/_form.template.html.twig'
+                },
+                {
+                    'title': 'Поля',
+                    'target': 'form-fields',
+                    'path': path('form_field_index', {'uuid': entity.uuid})
+                },
+                {
+                    'title': 'Статусы',
+                    'target': 'form-statuses',
+                    'path': path('form_status_index', {'uuid': entity.uuid})
+                },
+                {
+                    'title': 'Дополнительно',
+                    'target': 'form-extra',
+                    'view': 'forms/forms/_form.extra.html.twig'
+                }
+            ]}) }}
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Отменить</button>
+            <button type="submit" class="btn btn-primary">Подтвердить</button>
+        </div>
+    </div>
+</div>
+{{ form_end(form) }}

@@ -1,0 +1,43 @@
+<div class="row">
+    <div class="col">
+        <div class="row">
+            <div class="col">
+                <div class="form-group">
+                    {{ form_label(price.currency, 'Валюта', {'translation_domain': false}) }}
+                    {{ form_widget(price.currency) }}
+                    {{ form_errors(price.currency) }}
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group">
+                    {{ form_label(price.vat, 'НДС', {'translation_domain': false}) }}
+                    {{ form_widget(price.vat) }}
+                    {{ form_errors(price.vat) }}
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="form-group">
+                    {{ form_label(price.minLevel, 'MinLevel', {'translation_domain': false}) }}
+                    {{ form_widget(price.minLevel, {'attr': {'placeholder': '0.0'}, 'translation_domain': false}) }}
+                    {{ form_errors(price.minLevel) }}
+                </div>
+            </div>
+            <div class="col">
+                <small class="form-text text-muted" style="margin-top: 2rem">
+                    Укажите нижнюю границу стоимости в выбранной валюте.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            {{ form_label(price.comments, 'Комментарий', {'translation_domain': false}) }}
+            {{ form_widget(price.comments) }}
+            {{ form_errors(price.comments) }}
+        </div>
+    </div>
+    <div class="col">
+        <p><b>Диапазоны цен</b></p>
+        {{ include('prices/prices/_form.brakes.html.twig') }}
+    </div>
+</div>

@@ -1,0 +1,18 @@
+{% extends 'main.html.twig' %}
+
+{% block title %}Панель управления / Адреса / Типы{% endblock %}
+
+{% block content %}
+    <h3 class="page-title">Панель управления / Адреса / Типы</h3>
+    <div id="address-types">
+        {{ include('admin/addresses/types/_index.html.twig') }}
+    </div>
+
+    <div class="modal" id="form-modal" tabindex="-1" role="dialog" data-remote="true"></div>
+    {{ include('confirm.html.twig') }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('js/form.basic') }}
+{% endblock %}

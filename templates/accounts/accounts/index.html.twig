@@ -1,0 +1,22 @@
+{% extends 'main.html.twig' %}
+
+{% block title %}Контрагенты{% endblock %}
+
+{% block content %}
+    <h3 class="page-title">Контрагенты</h3>
+    <div id="accounts-list" data-pjax="true">
+        {{ include('accounts/accounts/_index.html.twig') }}
+    </div>
+
+    {% for item in ['form', 'address', 'code', 'contact', 'discount', 'manager', 'status'] %}
+        <div class="modal" id="{{ item }}-modal" tabindex="-1" role="dialog" data-remote="true"></div>
+    {% endfor %}
+
+    {{ include('confirm.html.twig') }}
+    {{ include('selector.html.twig') }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('build/js/form.selector.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,27 @@
+<div class="row">
+    <div class="col">
+        <div class="form-group">
+            {{ form_label(form.sort, 'form.label.sort') }}
+            {{ form_widget(form.sort) }}
+            {{ form_errors(form.sort) }}
+            <small class="form-text text-muted">
+                {{ 'form.hint.sort'| trans }}
+            </small>
+        </div>
+    </div>
+    <div class="col">
+        <div class="form-group">
+            {{ form_label(form.code, 'form.label.code') }}
+            {{ form_widget(form.code) }}
+            {{ form_errors(form.code) }}
+            <small class="form-text text-muted">
+                {{ 'form.hint.code'| trans }}
+            </small>
+        </div>
+    </div>
+</div>
+<div class="form-group">
+    {{ form_label(form.sites, 'Сайты') }}
+    {{ form_widget(form.sites) }}
+    {{ form_errors(form.sites) }}
+</div>

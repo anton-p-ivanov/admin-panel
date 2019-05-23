@@ -1,0 +1,41 @@
+{{ form_start(form, params) }}
+<div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title">{{ title }}</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body" style="height: 450px;">
+            {{ include('tabs.html.twig', {'tabs': [
+                {
+                    'title': storage.isDirectory ? 'Папка' : 'Файл',
+                    'target': 'storage-base',
+                    'view': 'storage/storage/_form.base.html.twig'
+                },
+                {
+                    'title': 'Расположения',
+                    'target': 'storage-nodes',
+                    'view': 'storage/storage/_form.nodes.html.twig',
+                },
+                {
+                    'title': 'Доступ',
+                    'target': 'storage-access',
+                    'view': 'storage/storage/_form.access.html.twig',
+                },
+                {
+                    'title': 'Версии',
+                    'target': 'storage-versions',
+                    'path': not storage.isDirectory ? path('storage_version_index', {'uuid': storage.uuid}) : null,
+                    'visible': not storage.isDirectory
+                },
+            ]}) }}
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Отменить</button>
+            <button type="submit" class="btn btn-primary">Подтвердить</button>
+        </div>
+    </div>
+</div>
+{{ form_end(form) }}

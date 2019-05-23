@@ -1,0 +1,18 @@
+{% extends "empty.html.twig" %}
+
+{% block content %}
+    <div class="btn-toolbar justify-content-between" role="toolbar">
+        <div class="btn-toolbar-container">
+            <div class="btn-group mr-2" role="group">
+                <a class="btn btn-outline-primary" href="{{ path('form_field_new', {'uuid': form.uuid}) }}" data-toggle="modal" data-target="#field-modal">
+                    {{ 'table.toolbar.add' | trans }}
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <br>
+
+    {{ include('fields/fields/_index.html.twig', {'path': 'form'}) }}
+    {{ include('paginator.html.twig', {'path': 'form_field_index', 'params': {'uuid': form.uuid}}) }}
+{% endblock %}

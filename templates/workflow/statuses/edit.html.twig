@@ -1,0 +1,16 @@
+{% extends "empty.html.twig" %}
+
+{% block content %}
+
+    {{ include('workflow/statuses/_form.html.twig', {
+        'title': 'Редактирование статуса',
+        'params': {
+            'action': path('workflow_status_edit', {'uuid': status.uuid}),
+            'attr': {
+                'id': 'workflow-status-form',
+                'data-container': '#workflow-statuses-list'
+            }
+        }}
+    ) }}
+
+{% endblock %}

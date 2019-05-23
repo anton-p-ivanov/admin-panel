@@ -1,0 +1,67 @@
+<div class="btn-toolbar justify-content-between" role="toolbar">
+    <div class="btn-toolbar-container">
+        <div class="btn-group mr-2" role="group">
+            <a class="btn btn-outline-primary" href="{{ path('training_test_new', {'uuid': course.uuid}) }}" data-toggle="modal" data-target="#form-modal">
+                {{ 'table.toolbar.create' | trans }}
+            </a>
+        </div>
+    </div>
+</div>
+<br>
+<table class="table table-striped table-borderless">
+    <colgroup>
+        <col>
+        <col style="width:70px">
+        <col style="width:150px">
+        <col style="width:50px">
+    </colgroup>
+    <thead>
+        <tr>
+            <th>{{ 'table.head.title' | trans }}</th>
+            <th>{{ 'table.head.is_active' | trans }}</th>
+            <th>{{ 'table.head.updated_at' | trans }}</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for test in paginator %}
+        <tr>
+            <td>
+                <a href="{{ path('training_test_edit', {'uuid': test.uuid}) }}" data-toggle="modal" data-target="#form-modal">{{ test.title }}</a>
+                <span class="text-muted ml-3">{{ test.description }}</span>
+            </td>
+            <td>{{ (test.isActive ? 'yes' : 'no') | trans }}</td>
+            <td>
+                {% if test.workflow is not null %}
+                    {{ test.workflow.updatedAt | date }}
+                {% else %}
+                    <em class="text-muted">Нет данных</em>
+                {% endif %}
+            </td>
+            <td style="overflow: visible">
+                <div class="dropdown context">
+                    <span data-toggle="dropdown">
+                        <i class="material-icons btn-block">menu</i>
+                    </span>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <a class="dropdown-item" href="{{ path('training_test_edit', {'uuid': test.uuid}) }}" data-toggle="modal" data-target="#form-modal">{{ 'table.action.edit' | trans }}</a>
+                        <a class="dropdown-item" href="{{ path('training_test_copy', {'uuid': test.uuid}) }}" data-toggle="modal" data-target="#form-modal">{{ 'table.action.copy' | trans }}</a>
+                        <a class="dropdown-item" href="{{ path('training_test_copy', {'uuid': test.uuid, 'deep': true}) }}" data-toggle="modal" data-target="#form-modal">{{ 'table.action.copy_deep' | trans }}</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="{{ path('training_attempt_filter', {'uuid': test.uuid}) }}" data-pjax="false">Попытки</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="{{ path('training_test_delete', {'uuid': test.uuid}) }}" data-toggle="confirm" data-method="delete">{{ 'table.action.delete' | trans }}</a>
+                        <a class="dropdown-item" href="{{ path('training_test_delete', {'uuid': test.uuid, 'force': true}) }}" data-toggle="confirm" data-method="delete">{{ 'table.action.delete_force' | trans }}</a>
+                    </div>
+                </div>
+            </td>
+        </tr>
+    {% else %}
+        <tr>
+            <td colspan="4">{{ 'table.empty' | trans }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+{{ include('paginator.html.twig', {'path': 'training_test_index', 'params': {'uuid': course.uuid}}) }}

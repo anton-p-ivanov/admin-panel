@@ -1,0 +1,16 @@
+{% extends "empty.html.twig" %}
+
+{% block content %}
+
+    {{ include('users/users/_form.html.twig', {
+        'title': 'Создание пользователя',
+        'params': {
+            'action': path('user_new'),
+            'attr': {
+                'id': 'user-form',
+                'data-container': '#users-list'
+            }
+        }}
+    ) }}
+
+{% endblock %}

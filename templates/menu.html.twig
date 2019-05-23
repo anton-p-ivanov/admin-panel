@@ -1,0 +1,31 @@
+<ul class="menu {% if class is defined %}{{ class }}{% endif %}">
+    {% if label is defined %}
+        <li class="menu__item menu__item_title">{{ label }}</li>
+    {% endif %}
+    {% for item in items %}
+    <li class="menu__item">
+        {% if item.divider is defined %}
+            <span class="menu__divider"></span>
+        {% else %}
+            {% if item.items is defined %}
+                <a class="menu__link" href="{{ item.url }}" data-toggle="submenu">
+                    {% if item.icon is defined %}
+                        <i class="mdi {{ item.icon }}"></i>
+                    {% else %}
+                        <span>{{ item.text }}</span>
+                    {% endif %}
+                </a>
+                {{ include('menu.html.twig', {'items': item.items, 'class': 'menu_group', 'label': item.text}) }}
+            {% else %}
+                <a class="menu__link" href="{{ item.url }}">
+                    {% if item.icon is defined %}
+                        <i class="mdi {{ item.icon }}"></i>
+                    {% else %}
+                        <span>{{ item.text }}</span>
+                    {% endif %}
+                </a>
+            {% endif %}
+        {% endif %}
+    </li>
+    {% endfor %}
+</ul>

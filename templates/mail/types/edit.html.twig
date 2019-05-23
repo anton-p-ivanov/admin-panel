@@ -1,0 +1,16 @@
+{% extends "empty.html.twig" %}
+
+{% block content %}
+
+    {{ include('mail/types/_form.html.twig', {
+        'title': 'Изменение типа почтового шаблона',
+        'params': {
+            'action': path('mail_type_edit', {'uuid': type.uuid}),
+            'attr': {
+                'id': 'mail-type-form',
+                'data-container': '#mail-types'
+            }
+        }}
+    ) }}
+
+{% endblock %}

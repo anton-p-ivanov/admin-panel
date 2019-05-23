@@ -1,0 +1,96 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="ru" datatype="plaintext" original="file.ext">
+        <body>
+            <!-- Labels -->
+            <trans-unit id="mail.template.label.type">
+                <source>mail.template.label.type</source>
+                <target>Template type</target>
+            </trans-unit>
+            <trans-unit id="mail.template.label.code">
+                <source>mail.template.label.code</source>
+                <target>Unique symbolic code</target>
+            </trans-unit>
+            <trans-unit id="mail.template.label.sender">
+                <source>mail.template.label.sender</source>
+                <target>Sender</target>
+            </trans-unit>
+            <trans-unit id="mail.template.label.recipient">
+                <source>mail.template.label.recipient</source>
+                <target>Recipient</target>
+            </trans-unit>
+            <trans-unit id="mail.template.label.replyTo">
+                <source>mail.template.label.replyTo</source>
+                <target>Reply to</target>
+            </trans-unit>
+            <trans-unit id="mail.template.label.copyTo">
+                <source>mail.template.label.copyTo</source>
+                <target>Copy to</target>
+            </trans-unit>
+            <trans-unit id="mail.template.label.isActive">
+                <source>mail.template.label.isActive</source>
+                <target>Is active</target>
+            </trans-unit>
+            <trans-unit id="mail.template.label.subject">
+                <source>mail.template.label.subject</source>
+                <target>Subject</target>
+            </trans-unit>
+            <trans-unit id="mail.template.label.textBody">
+                <source>mail.template.label.textBody</source>
+                <target>Body (plain text)</target>
+            </trans-unit>
+            <trans-unit id="mail.template.label.htmlBody">
+                <source>mail.template.label.htmlBody</source>
+                <target>Body (HTML)</target>
+            </trans-unit>
+            <trans-unit id="mail.template.label.sites">
+                <source>mail.template.label.sites</source>
+                <target>Enabled for sites</target>
+            </trans-unit>
+            
+            <!-- Hints -->
+            <trans-unit id="mail.template.hint.type">
+                <source>mail.template.hint.type</source>
+                <target>Templates are grouped by types. Please select one of available types.</target>
+            </trans-unit>
+            <trans-unit id="mail.template.hint.code">
+                <source>mail.template.hint.code</source>
+                <target>Maximum 255 characters allowed. Must contain letters, numbers and underscores only.</target>
+            </trans-unit>
+            <trans-unit id="mail.template.hint.isActive">
+                <source>mail.template.hint.isActive</source>
+                <target>Define an mail template activity and its availability. If not active it will not be used for mailing.</target>
+            </trans-unit>
+            <trans-unit id="mail.template.hint.subject">
+                <source>mail.template.hint.subject</source>
+                <target>Maximum 255 characters allowed. Must not contain any HTML/XML tags.</target>
+            </trans-unit>
+
+            <!-- Placeholders -->
+            <trans-unit id="mail.template.placeholder.type">
+                <source>mail.template.placeholder.type</source>
+                <target>Selecte template type</target>
+            </trans-unit>
+            <trans-unit id="mail.template.placeholder.code">
+                <source>mail.template.placeholder.code</source>
+                <target>NEW_TEMPLATE</target>
+            </trans-unit>
+            <trans-unit id="mail.template.placeholder.sender">
+                <source>mail.template.placeholder.sender</source>
+                <target>john.smith@email.com</target>
+            </trans-unit>
+            <trans-unit id="mail.template.placeholder.recipient">
+                <source>mail.template.placeholder.recipient</source>
+                <target>john.smith@email.com</target>
+            </trans-unit>
+            <trans-unit id="mail.template.placeholder.replyTo">
+                <source>mail.template.placeholder.replyTo</source>
+                <target>john.smith@email.com</target>
+            </trans-unit>
+            <trans-unit id="mail.template.placeholder.copyTo">
+                <source>mail.template.placeholder.copyTo</source>
+                <target>john.smith@email.com</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

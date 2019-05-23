@@ -1,0 +1,68 @@
+<div class="form-group row">
+    {{ form_label(form.limitAttempts, 'training.test.form.label.limit_attempts', {
+        'translation_domain': 'training',
+        'label_attr': {'class': 'col-3 col-form-label text-right'}
+    }) }}
+    <div class="col">
+        {{ form_widget(form.limitAttempts, {'attr': {'class': 'w-50', 'placeholder': 'Значение не задано'}}) }}
+        {{ form_errors(form.limitAttempts) }}
+        <small class="form-text text-muted">
+            Максимальное число попыток. Если указано 0, число попыток не ограничивается.
+        </small>
+    </div>
+</div>
+<div class="form-group row">
+    {{ form_label(form.limitTime, 'training.test.form.label.limit_time', {
+        'translation_domain': 'training',
+        'label_attr': {'class': 'col-3 col-form-label text-right'}
+    }) }}
+    <div class="col">
+        {{ form_widget(form.limitTime, {'attr': {'class': 'w-50', 'placeholder': 'Значение не задано'}}) }}
+        {{ form_errors(form.limitTime) }}
+        <small class="form-text text-muted">
+            Максимальное время прохождения теста в минутах. Если указано 0, время не ограничивается.
+        </small>
+    </div>
+</div>
+<div class="form-group row">
+    {{ form_label(form.limitPercent, 'training.test.form.label.limit_percent', {
+        'translation_domain': 'training',
+        'label_attr': {'class': 'col-3 col-form-label text-right'}
+    }) }}
+    <div class="col">
+        {{ form_widget(form.limitPercent, {'attr': {'class': 'w-50', 'placeholder': 'Значение не задано'}}) }}
+        {{ form_errors(form.limitPercent) }}
+        <small class="form-text text-muted">
+            Минимальный процент правильных ответов, необходимый для успешного прохождения теста.
+            Если указано 0, процент не ограничивается.
+        </small>
+    </div>
+</div>
+<div class="form-group row">
+    {{ form_label(form.limitValue, 'training.test.form.label.limit_value', {
+        'translation_domain': 'training',
+        'label_attr': {'class': 'col-3 col-form-label text-right'}
+    }) }}
+    <div class="col">
+        {{ form_widget(form.limitValue, {'attr': {'class': 'w-50', 'placeholder': 'Значение не задано'}}) }}
+        {{ form_errors(form.limitValue) }}
+        <small class="form-text text-muted">
+            Минимальное количество баллов, необходимое для успешного прохождения теста.
+            Если указано 0, баллы не ограничиваются.
+        </small>
+    </div>
+</div>
+<div class="form-group row">
+    {{ form_label(form.limitQuestions, 'training.test.form.label.limit_questions', {
+        'translation_domain': 'training',
+        'label_attr': {'class': 'col-3 col-form-label text-right'}
+    }) }}
+    <div class="col">
+        {{ form_widget(form.limitQuestions, {'attr': {'class': 'w-50', 'placeholder': 'Значение не задано'}}) }}
+        {{ form_errors(form.limitQuestions) }}
+        <small class="form-text text-muted">
+            Минимальное количество вопросов с правильными ответами, необходимое для успешного прохождения теста.
+            Если указано 0, количество не ограничивается.
+        </small>
+    </div>
+</div>

@@ -1,0 +1,12 @@
+{% set params = params is defined ? params : {} %}
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        {% for node in path %}
+            {% if loop.last %}
+                <li class="breadcrumb-item active" aria-current="page">{{ node.element ? node.element.title : catalog.title }}</li>
+            {% else %}
+                <li class="breadcrumb-item"><a href="{{ path('catalog_element_index', {'uuid': node.uuid} | merge(params)) }}">{{ node.element ? node.element.title : catalog.title }}</a></li>
+            {% endif %}
+        {% endfor %}
+    </ol>
+</nav>

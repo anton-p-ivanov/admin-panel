@@ -1,0 +1,16 @@
+{% extends "empty.html.twig" %}
+
+{% block content %}
+
+    {{ include('admin/partnership/discounts/_form.html.twig', {
+        'title': 'Изменение скидки',
+        'params': {
+            'action': path('partnership_discount_edit', {'uuid': discount.uuid}),
+            'attr': {
+                'id': 'status-discount-form',
+                'data-container': '#status-discounts'
+            }
+        }}
+    ) }}
+
+{% endblock %}

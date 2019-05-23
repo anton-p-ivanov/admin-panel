@@ -1,0 +1,17 @@
+{% extends "empty.html.twig" %}
+
+{% block content %}
+
+    {{ include('accounts/accounts/_form.html.twig', {
+        'title': 'Создание контрагента',
+        'params': {
+            'action': path('account_new'),
+            'attr': {
+                'id': 'account-form',
+                'data-container': '#accounts-list',
+                'novalidate': true
+            }
+        }}
+    ) }}
+
+{% endblock %}

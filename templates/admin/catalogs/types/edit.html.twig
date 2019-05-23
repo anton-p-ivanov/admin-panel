@@ -1,0 +1,16 @@
+{% extends "empty.html.twig" %}
+
+{% block content %}
+
+    {{ include('admin/catalogs/types/_form.html.twig', {
+        'title': 'Изменение типа справочников',
+        'params': {
+            'action': path('admin_catalog_type_edit', {'uuid': type.uuid}),
+            'attr': {
+                'id': 'catalog-type-form',
+                'data-container': '#catalog-types'
+            }
+        }}
+    ) }}
+
+{% endblock %}

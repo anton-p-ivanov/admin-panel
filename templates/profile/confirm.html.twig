@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Ошибка активации учётной записи
+{% endblock %}
+
+{% block body %}
+
+    <div class="form-confirm">
+        <h3 class="font-weight-normal text-center">Ошибка активации<br>учётной записи</h3>
+        <p>К сожалению, активировать Вашу учётную запись не получилось. Возможные причины:</p>
+        <ul>
+            <li>учётная запись {{ username }} не была зарегистрирована;</li>
+            <li>контрольная строка указана неверно или не действительна.</li>
+        </ul>
+        <p>Пожалуйста, обратитесь за помощью к администратору сайта через форму <a href="{{ absolute_url('contact') }}">обратной
+                связи</a>.</p>
+
+        <p class="text-center"><a class="btn btn-secondary" href="{{ absolute_url('login') }}">Авторизация</a></p>
+    </div>
+{% endblock %}
+
+{% block styles %}
+    <style type="text/css">
+        {{ include('profile/confirm.css.twig') }}
+    </style>
+{% endblock %}

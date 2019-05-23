@@ -1,0 +1,16 @@
+{% extends "empty.html.twig" %}
+
+{% block content %}
+
+    {{ include('storage/storage/_form.html.twig', {
+        'title': 'Создание папки',
+        'params': {
+            'action': path('storage_new', {'uuid': storage.parentNodes.count ? storage.parentNodes.first.uuid : 'root'}),
+            'attr': {
+                'id': 'storage-form',
+                'data-container': '#storage-list'
+            }
+        }}
+    ) }}
+
+{% endblock %}

@@ -1,0 +1,54 @@
+{{ form_start(form, params) }}
+<div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title">{{ title }}</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <div class="form-group">
+                {{ form_widget(form.isActive, {'label': 'Валидатор активен'}) }}
+                <small class="form-text text-muted">
+                    Определяет, будет ли этот валидатор использоваться при проверки значений поля.
+                </small>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        {{ form_label(form.type, 'Валидатор') }}
+                        {{ form_widget(form.type, {'placeholder': '- Не выбрано -'}) }}
+                        {{ form_errors(form.type) }}
+                        <small class="form-text text-muted">
+                            Выберите один из доступных типов валидаторов.
+                        </small>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        {{ form_label(form.sort, 'Индекс сортировки') }}
+                        {{ form_widget(form.sort) }}
+                        {{ form_errors(form.sort) }}
+                        <small class="form-text text-muted">
+                            {{ 'form.hint.sort'| trans }}
+                        </small>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                {{ form_label(form.options, 'Дополнительные опции') }}
+                {{ form_widget(form.options) }}
+                {{ form_errors(form.options) }}
+                <small class="form-text text-muted">
+                    Дополнительные HTML-атрибуты в JSON-формате: <code>{"readonly":1,"title":"Sample"}</code>
+                </small>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Отменить</button>
+            <button type="submit" class="btn btn-primary">Подтвердить</button>
+        </div>
+    </div>
+</div>
+{{ form_end(form) }}

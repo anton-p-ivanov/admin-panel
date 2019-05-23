@@ -1,0 +1,16 @@
+{% extends "empty.html.twig" %}
+
+{% block content %}
+
+    {{ include('fields/fields/_form.html.twig', {
+        'title': 'Изменение поля',
+        'params': {
+            'action': path('catalog_field_edit', {'uuid': field.uuid}),
+            'attr': {
+                'id': 'form-field-form',
+                'data-container': '#form-fields'
+            }
+        }}
+    ) }}
+
+{% endblock %}

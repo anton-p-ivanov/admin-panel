@@ -1,0 +1,21 @@
+{% extends 'main.html.twig' %}
+
+{% block title %}Справочники{% endblock %}
+
+{% block content %}
+    <h3 class="page-title">Справочники / {{ type.title }}</h3>
+    <div id="catalogs-list" data-pjax="true">
+        {{ include('admin/catalogs/catalogs/_index.html.twig') }}
+    </div>
+
+    {% for item in ['form', 'field', 'validator', 'value'] %}
+        <div class="modal" id="{{ item }}-modal" tabindex="-1" role="dialog" data-remote="true"></div>
+    {% endfor %}
+
+    {{ include('confirm.html.twig') }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('js/form.fields') }}
+{% endblock %}

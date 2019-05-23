@@ -1,0 +1,16 @@
+{% extends "empty.html.twig" %}
+
+{% block content %}
+
+    {{ include('admin/sales/discounts/_form.html.twig', {
+        'title': 'Добавление скидки',
+        'params': {
+            'action': path('sales_discount_new'),
+            'attr': {
+                'id': 'sales-discount-form',
+                'data-container': '#sales-discounts'
+            }
+        }}
+    ) }}
+
+{% endblock %}

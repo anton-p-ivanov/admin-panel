@@ -1,0 +1,26 @@
+{% extends 'main.html.twig' %}
+
+{% block title %}Каталоги / {{ catalog.title }} / Элементы{% endblock %}
+
+{% block content %}
+    <h3 class="page-title">Каталоги / {{ catalog.title }} / Элементы</h3>
+    <div id="elements-list" data-pjax="true">
+        {{ include('catalogs/elements/_index.html.twig') }}
+    </div>
+
+    <div class="modal" id="form-modal" tabindex="-1" role="dialog" data-remote="true"></div>
+    <div class="modal" id="discount-modal" tabindex="-1" role="dialog" data-remote="true"></div>
+
+    {{ include('confirm.html.twig') }}
+    {{ include('selector.html.twig') }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('js/form.basic') }}
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('css/catalogs/elements/index') }}
+{% endblock %}

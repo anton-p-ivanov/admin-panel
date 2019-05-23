@@ -1,0 +1,16 @@
+{% extends "empty.html.twig" %}
+
+{% block content %}
+
+    {{ include('admin/partnership/statuses/_form.html.twig', {
+        'title': 'Создание нового статуса',
+        'params': {
+            'action': path('partnership_status_new'),
+            'attr': {
+                'id': 'partnership-status-form',
+                'data-container': '#admin-partnership-statuses-list'
+            }
+        }}
+    ) }}
+
+{% endblock %}

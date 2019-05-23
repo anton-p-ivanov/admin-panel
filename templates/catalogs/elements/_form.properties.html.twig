@@ -1,0 +1,10 @@
+{% for value in form.values %}
+    <div class="form-group row">
+        {{ form_label(value.value, value.value.vars.label, {'label_attr': {'class': 'col-3 col-form-label'}}) }}
+        <div class="col">
+        {{ form_widget(value.value) }}
+        {{ form_errors(value.value) }}
+        {{ form_help(value.value) }}
+        </div>
+    </div>
+{% endfor %}

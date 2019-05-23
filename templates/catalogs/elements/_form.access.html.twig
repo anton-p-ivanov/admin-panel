@@ -1,0 +1,38 @@
+<p><b>Группы пользователей</b></p>
+<div class="form-group form-group-column">
+    <div class="row">
+    {% for role in form.roles %}
+        {% if loop.index % 5 == 1 %}
+            <div class="col">
+        {% endif %}
+        {{ form_widget(role) }}
+        {% if loop.last or (loop.index % 5 == 0) %}
+            </div>
+        {% endif %}
+    {% endfor %}
+    </div>
+    {{ form_errors(form.roles) }}
+    <small class="form-text text-muted">
+        Выберите группы пользователей, для которых элемент будет виден. Если не выбрано ни одной группы,
+        видимость элемента не ограничивается.
+    </small>
+</div>
+<p><b>Сайты</b></p>
+<div class="form-group form-group-column">
+    <div class="row">
+    {% for site in form.sites %}
+        {% if loop.index % 5 == 1 %}
+            <div class="col">
+        {% endif %}
+        {{ form_widget(site) }}
+        {% if loop.last or (loop.index % 5 == 0) %}
+            </div>
+        {% endif %}
+    {% endfor %}
+    </div>
+    {{ form_errors(form.sites) }}
+    <small class="form-text text-muted">
+        Выберите сайты, на которых элемент будет виден. Если не выбрано ни одного сайта, видимость элемента
+        не ограничивается.
+    </small>
+</div>

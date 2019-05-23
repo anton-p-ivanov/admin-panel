@@ -1,0 +1,87 @@
+<div class="row">
+    <div class="col">
+        <div class="form-group">
+            {{ form_label(form.phone, 'form.label.phone') }}
+            {{ form_widget(form.phone, {'attr': {'placeholder': 'form.placeholder.phone'}}) }}
+            {{ form_errors(form.phone) }}
+            <small class="form-text text-muted">
+                {{ 'form.hint.phone'| trans }}
+            </small>
+        </div>
+        <div class="form-group">
+            {{ form_label(form.sort, 'form.label.sort') }}
+            {{ form_widget(form.sort) }}
+            {{ form_errors(form.sort) }}
+            <small class="form-text text-muted">
+                {{ 'form.hint.sort'| trans }}
+            </small>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="form-group">
+                    {{ form_label(form.sites, 'Сайты') }}
+                    {{ form_widget(form.sites) }}
+                    {{ form_errors(form.sites) }}
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group">
+                    {{ form_label(form.types, 'Типы контрагента') }}
+                    {{ form_widget(form.types) }}
+                    {{ form_errors(form.types) }}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="form-group">
+            {{ form_label(form.status, 'Статус документооборота', {'translation_domain': false}) }}
+            {{ form_widget(form.status) }}
+            {{ form_errors(form.status) }}
+            <small class="form-text text-muted">
+                Контрагенты в статусе "Черновик" видны и могут быть изменены только Владельцем. Статус "Готов к публикации"
+                позволяет другим пользователям ознакомиться с данными контрагента, но сохраняет его невидимым для публичного
+                просмотра. Опубликованные контрагенты готовы к публичному просмотру.
+            </small>
+        </div>
+        <p>Документооборот</p>
+        <table class="table table-striped">
+            <colgroup>
+                <col style="width:100px">
+                <col>
+            </colgroup>
+            <tbody>
+            <tr>
+                <th>Создано</th>
+                <td>
+                    {% if account.workflow.createdAt %}
+                        {{ account.workflow.createdAt | date }}
+                    {% else %}
+                        <em class="text-muted">Нет данных</em>
+                    {% endif %}
+                    {% if account.workflow.created is not null %}
+                        ({{ account.workflow.created.fullName }})
+                    {% else %}
+                        (System User)
+                    {% endif %}
+                </td>
+            </tr>
+            <tr>
+                <th>Изменено</th>
+                <td>
+                    {% if account.workflow.updatedAt %}
+                        {{ account.workflow.updatedAt | date }}
+                    {% else %}
+                        <em class="text-muted">Нет данных</em>
+                    {% endif %}
+                    {% if account.workflow.updated is not null %}
+                        ({{ account.workflow.updated.fullName }})
+                    {% else %}
+                        (System User)
+                    {% endif %}
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

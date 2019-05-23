@@ -1,0 +1,46 @@
+security:
+    # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
+    providers:
+        db:
+            entity:
+                class: App\Entity\User\User
+                property: email
+    firewalls:
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+        main:
+            pattern: ^/
+            anonymous: true
+            user_checker: App\Security\UserChecker
+
+            # https://symfony.com/doc/current/security/form_login_setup.html
+            form_login:
+                login_path: login
+                check_path: login
+                use_referer: true
+
+                csrf_token_generator: security.csrf.token_manager
+
+            logout:
+                path: /profile/logout
+                target: /
+
+            # https://symfony.com/doc/current/security/remember_me.html
+            remember_me:
+                secret: '%kernel.secret%'
+                lifetime: 86400
+                path: /
+
+            provider: db
+
+    # Easy way to control access for large sections of your site
+    # Note: Only the *first* access control that matches will be used
+    access_control:
+        - { path: ^/profile/profile, roles: IS_AUTHENTICATED_FULLY }
+        - { path: ^/profile, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/, roles: IS_AUTHENTICATED_FULLY }
+
+    encoders:
+        App\Entity\User\User:
+            id: password_encoder

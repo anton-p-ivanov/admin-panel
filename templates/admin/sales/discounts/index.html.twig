@@ -1,0 +1,18 @@
+{% extends 'main.html.twig' %}
+
+{% block title %}Панель управления / Торговый модуль / Скидки{% endblock %}
+
+{% block content %}
+    <h3 class="page-title">Панель управления / Торговый модуль / Скидки</h3>
+    <div id="sales-discounts">
+        {{ include('admin/sales/discounts/_index.html.twig') }}
+    </div>
+
+    <div class="modal" id="form-modal" tabindex="-1" role="dialog" data-remote="true"></div>
+    {{ include('confirm.html.twig') }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('js/form.basic') }}
+{% endblock %}

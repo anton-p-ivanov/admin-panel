@@ -1,0 +1,19 @@
+{% set index = 0 %}
+<div class="accordion" id="training_test_questions">
+{% for key, lesson in test.course.lessons %}
+    <div class="card">
+        <div class="card-header">
+            <input type="checkbox" id="training_test_questions_{{ key }}_check" class="form-check-input" data-select="#training_test_questions_{{ key }}" title="Выделить все/снять выделение">
+            <a class="card-title{% if not loop.first %} collapsed{% endif %}" data-toggle="collapse" data-target="#training_test_questions_{{ key }}">
+                <b>{{ lesson.title }}</b>
+            </a>
+        </div>
+        <div class="card-body{% if not loop.first %} collapse{% endif %}" id="training_test_questions_{{ key }}" data-parent="#training_test_questions">
+            {% for question in lesson.questions %}
+                {{ form_widget(form.questions[index]) }}
+                {% set index = index + 1 %}
+            {% endfor %}
+        </div>
+    </div>
+{% endfor %}
+</div>

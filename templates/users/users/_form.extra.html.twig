@@ -1,0 +1,90 @@
+<div class="row">
+    <div class="col">
+        <div class="form-group">
+            {{ form_label(form.phone, 'Телефон') }}
+            {{ form_widget(form.phone) }}
+            {{ form_errors(form.phone) }}
+            <small class="form-text text-muted">
+                {{ 'form.hint.phone' | trans }}
+            </small>
+        </div>
+        <div class="form-group">
+            {{ form_label(form.phone_mobile, 'Мобильный телефон') }}
+            {{ form_widget(form.phone_mobile) }}
+            {{ form_errors(form.phone_mobile) }}
+            <small class="form-text text-muted">
+                {{ 'form.hint.phone' | trans }}
+            </small>
+        </div>
+        <div class="form-group">
+            {{ form_label(form.skype, 'Skype') }}
+            {{ form_widget(form.skype) }}
+            {{ form_errors(form.skype) }}
+            <small class="form-text text-muted">
+                Имя пользователя в социальной сети Skype.
+            </small>
+        </div>
+    </div>
+    <div class="col">
+        <p>Прочая информация</p>
+        <table class="table table-sm small table-striped">
+            <thead>
+            <tr>
+                <th>Дата регистрации</th>
+                <th>Дата обновления</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>
+                    {% if user.workflow is not null %}
+                        {{ user.workflow.createdAt | date }}
+                    {% else %}
+                        <em class="text-muted">Нет данных</em>
+                    {% endif %}
+                </td>
+                <td>
+                    {% if user.workflow is not null %}
+                        {{ user.workflow.updatedAt | date }}
+                    {% else %}
+                        <em class="text-muted">Нет данных</em>
+                    {% endif %}
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+        <p>Статистика смены паролей</p>
+        <table class="table table-sm small table-striped">
+            <colgroup>
+                <col style="width:35px">
+                <col span="2">
+                <col style="width:50px">
+            </colgroup>
+            <thead>
+            <tr>
+                <th class="text-right">#</th>
+                <th>Выдан</th>
+                <th>Действует до</th>
+                <th>Акт.</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for password in user.userPasswords %}
+                {% set index = 1 %}
+                <tr>
+                    <td class="text-right">{{ index }}.</td>
+                    <td>{{ password.createdAt | date }}</td>
+                    <td>{{ password.expiredAt | date }}</td>
+                    <td>{{ password.isExpired ? 'Нет' : 'Да' }}</td>
+                </tr>
+                {% set index = index + 1 %}
+            {% else %}
+                <tr>
+                    <td colspan="4">{{ 'table.empty' | trans }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,11 @@
+<form method="{{ method is defined ? method : 'get' }}" action="{{ reset }}">
+    <div class="input-group">
+        <input type="text" name="search" class="form-control" placeholder="Поиск..." value="{{ app.request.get('search') | escape }}">
+        <div class="input-group-append">
+            <button type="submit" class="btn btn-outline-secondary">
+                <span class="material-icons">search</span>
+            </button>
+            <a href="{{ reset }}" class="btn btn-outline-secondary"><span class="material-icons">close</span></a>
+        </div>
+    </div>
+</form>

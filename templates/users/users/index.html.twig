@@ -1,0 +1,21 @@
+{% extends 'main.html.twig' %}
+
+{% block title %}Пользователи{% endblock %}
+
+{% block content %}
+    <h3 class="page-title">Пользователи</h3>
+    <div id="users-list" data-pjax="true">
+        {{ include('users/users/_index.html.twig') }}
+    </div>
+
+    <div class="modal" id="form-modal" tabindex="-1" role="dialog" data-remote="true"></div>
+    <div class="modal" id="account-modal" tabindex="-1" role="dialog" data-remote="true"></div>
+
+    {{ include('confirm.html.twig') }}
+    {{ include('selector.html.twig') }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('js/form.selector') }}
+{% endblock %}

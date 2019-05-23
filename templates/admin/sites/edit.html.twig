@@ -1,0 +1,16 @@
+{% extends "empty.html.twig" %}
+
+{% block content %}
+
+    {{ include('admin/sites/_form.html.twig', {
+        'title': 'Изменение сайта',
+        'params': {
+            'action': path('site_edit', {'uuid': site.uuid}),
+            'attr': {
+                'id': 'site-form',
+                'data-container': '#admin-sites'
+            }
+        }}
+    ) }}
+
+{% endblock %}

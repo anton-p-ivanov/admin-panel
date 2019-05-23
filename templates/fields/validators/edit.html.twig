@@ -1,0 +1,16 @@
+{% extends "empty.html.twig" %}
+
+{% block content %}
+
+    {{ include('fields/validators/_form.html.twig', {
+        'title': 'Изменение валидатора',
+        'params': {
+            'action': path('field_validator_edit', {'uuid': validator.uuid}),
+            'attr': {
+                'id': 'form-validator-form',
+                'data-container': '#field-validators'
+            }
+        }}
+    ) }}
+
+{% endblock %}

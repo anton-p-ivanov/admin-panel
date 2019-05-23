@@ -1,0 +1,72 @@
+<div class="row">
+    <div class="col col-8">
+        <div class="form-group">
+            {{ form_widget(form.isActive, {'label': 'Активен'}) }}
+            <small class="form-text text-muted">
+                Определяет активность учётной записи пользователя.
+            </small>
+        </div>
+    </div>
+    <div class="col">
+        <div class="form-group">
+            {{ form_widget(form.isConfirmed, {'label': 'Подтверждён'}) }}
+            <small class="form-text text-muted">
+                Подтверждение учётной записи пользователя.
+            </small>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col col-8">
+        <div class="form-group">
+            {{ form_label(form.email, 'E-Mail') }}
+            {{ form_widget(form.email, {'attr': {'autofocus': true}}) }}
+            {{ form_errors(form.email) }}
+            <small class="form-text text-muted">
+                Служит в качестве уникального идентификатора пользователя.
+            </small>
+        </div>
+    </div>
+    <div class="col">
+        <div class="form-group">
+            {{ form_label(form.birthdate, 'Дата рождения') }}
+            {{ form_widget(form.birthdate) }}
+            {{ form_errors(form.birthdate) }}
+            <small class="form-text text-muted">
+                Введите дату рождения пользователя.
+            </small>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+        <div class="form-group">
+            {{ form_label(form.lname, 'Фамилия') }}
+            {{ form_widget(form.lname, {'attr': {'placeholder': 'Иванов'}}) }}
+            {{ form_errors(form.lname) }}
+            <small class="form-text text-muted">
+                Допускается не более 255 символов.
+            </small>
+        </div>
+    </div>
+    <div class="col">
+        <div class="form-group">
+            {{ form_label(form.fname, 'Имя') }}
+            {{ form_widget(form.fname, {'attr': {'placeholder': 'Иван'}}) }}
+            {{ form_errors(form.fname) }}
+            <small class="form-text text-muted">
+                Допускается не более 255 символов.
+            </small>
+        </div>
+    </div>
+    <div class="col">
+        <div class="form-group">
+            {{ form_label(form.sname, 'Отчество') }}
+            {{ form_widget(form.sname, {'attr': {'placeholder': 'Иванович'}}) }}
+            {{ form_errors(form.sname) }}
+            <small class="form-text text-muted">
+                Допускается не более 255 символов.
+            </small>
+        </div>
+    </div>
+</div>

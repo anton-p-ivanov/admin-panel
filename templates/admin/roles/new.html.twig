@@ -1,0 +1,16 @@
+{% extends "empty.html.twig" %}
+
+{% block content %}
+
+    {{ include('admin/roles/_form.html.twig', {
+        'title': 'Добавление роли',
+        'params': {
+            'action': path('role_new'),
+            'attr': {
+                'id': 'role-form',
+                'data-container': '#admin-roles'
+            }
+        }}
+    ) }}
+
+{% endblock %}

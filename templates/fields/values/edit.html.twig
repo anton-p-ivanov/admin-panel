@@ -1,0 +1,16 @@
+{% extends "empty.html.twig" %}
+
+{% block content %}
+
+    {{ include('fields/values/_form.html.twig', {
+        'title': 'Изменение значения',
+        'params': {
+            'action': path('field_value_edit', {'uuid': value.uuid}),
+            'attr': {
+                'id': 'form-value-form',
+                'data-container': '#field-values'
+            }
+        }}
+    ) }}
+
+{% endblock %}

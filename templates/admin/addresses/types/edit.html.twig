@@ -1,0 +1,16 @@
+{% extends "empty.html.twig" %}
+
+{% block content %}
+
+    {{ include('admin/addresses/types/_form.html.twig', {
+        'title': 'Изменение типа адреса',
+        'params': {
+            'action': path('address_type_edit', {'uuid': type.uuid}),
+            'attr': {
+                'id': 'address-type-form',
+                'data-container': '#address-types'
+            }
+        }}
+    ) }}
+
+{% endblock %}

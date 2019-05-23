@@ -1,0 +1,27 @@
+{% extends 'main.html.twig' %}
+
+{% block title %}Обучение / Вопросы{% endblock %}
+
+{% block content %}
+    <h3 class="page-title">Обучение / Вопросы</h3>
+
+    {% if lesson is defined %}
+        <div class="alert alert-info">
+            Курс "<a href="{{ path('training_course_index') }}">{{ lesson.course.title }}</a>" /
+            Урок "<a href="{{ path('training_lesson_filter', {'uuid': lesson.course.uuid}) }}">{{ lesson.title }}</a>"
+        </div>
+    {% endif %}
+
+    <div id="training-questions-list" data-pjax="true">
+        {{ include('training/questions/_index.html.twig') }}
+    </div>
+
+    <div class="modal" id="form-modal" tabindex="-1" role="dialog" data-remote="true"></div>
+
+    {{ include('confirm.html.twig') }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('js/form.basic') }}
+{% endblock %}

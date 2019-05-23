@@ -1,0 +1,16 @@
+{% extends "empty.html.twig" %}
+
+{% block content %}
+
+    {{ include('forms/forms/_form.html.twig', {
+        'title': 'Создание веб-формы',
+        'params': {
+            'action': path('form_new'),
+            'attr': {
+                'id': 'form-form',
+                'data-container': '#forms-list'
+            }
+        }}
+    ) }}
+
+{% endblock %}

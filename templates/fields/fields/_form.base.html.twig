@@ -1,0 +1,58 @@
+<div class="row">
+    <div class="col">
+        <div class="form-group">
+            {{ form_widget(form.isActive, {'label': 'Активность поля'}) }}
+            <small class="form-text text-muted">
+                Определяет, будет ли это поле использоваться при заполнении веб-формы.
+            </small>
+        </div>
+    </div>
+    <div class="col">
+        <div class="form-group">
+            {{ form_widget(form.isMultiple, {'label': 'Множественное'}) }}
+            <small class="form-text text-muted">
+                Может принимать несколько значений.
+            </small>
+        </div>
+    </div>
+</div>
+<div class="form-group">
+    {{ form_label(form.label, 'Название') }}
+    {{ form_widget(form.label, {'attr': {'autofocus': true}}) }}
+    {{ form_errors(form.label) }}
+    <small class="form-text text-muted">
+        {{ 'form.hint.title'| trans }}
+    </small>
+</div>
+<div class="row">
+    <div class="col">
+        <div class="form-group">
+            {{ form_label(form.description, 'Краткое описание') }}
+            {{ form_widget(form.description, {'attr': {'rows': 6}}) }}
+            {{ form_errors(form.description) }}
+            <small class="form-text text-muted">
+                {{ 'form.hint.description'| trans }}
+            </small>
+        </div>
+    </div>
+    <div class="col">
+        <div class="form-group">
+            {{ form_label(form.type, 'Тип поля') }}
+            {{ form_widget(form.type, {'placeholder': '- Не выбрано -'}) }}
+            {{ form_errors(form.type) }}
+            <small class="form-text text-muted">
+                Выберите один из доступных типов поля.
+            </small>
+        </div>
+        <div class="form-group">
+            {{ form_label(form.isExpanded, 'Вид поля') }}
+            {{ form_widget(form.isExpanded) }}
+            {{ form_errors(form.isExpanded) }}
+            <small class="form-text text-muted">
+                Выберите один из вариантов отображения поля (только для полей со значениями).
+            </small>
+        </div>
+    </div>
+</div>
+
+

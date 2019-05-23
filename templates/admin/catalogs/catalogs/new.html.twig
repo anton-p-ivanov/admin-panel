@@ -1,0 +1,16 @@
+{% extends "empty.html.twig" %}
+
+{% block content %}
+
+    {{ include('admin/catalogs/catalogs/_form.html.twig', {
+        'title': 'Создание нового справочника',
+        'params': {
+            'action': path('admin_catalog_new', {'uuid': type.uuid}),
+            'attr': {
+                'id': 'catalog-form',
+                'data-container': '#catalogs-list'
+            }
+        }}
+    ) }}
+
+{% endblock %}

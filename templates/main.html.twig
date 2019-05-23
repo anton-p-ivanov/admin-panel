@@ -1,0 +1,120 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {% set navbar = [
+        {
+            'title': 'Справочники',
+            'url': path('catalog_dashboard')
+        },
+        {
+            'title': 'Панель управления',
+            'items': [
+                {
+                    'title': 'Библиотека файлов',
+                    'url': path('storage_index', {'uuid': 'root'}),
+                },
+                {
+                    'divider': true
+                },
+                {
+                    'title': 'Пользователи',
+                    'url': path('user_index'),
+                },
+                {
+                    'title': 'Группы пользователей',
+                    'url': path('role_index'),
+                },
+                {
+                    'title': 'Контрагенты',
+                    'url': path('account_index')
+                },
+                {
+                    'divider': true
+                },
+                {
+                    'title': 'Регистрационные формы',
+                    'url': path('form_index')
+                },
+                {
+                    'title': 'Почтовые шаблоны',
+                    'url': path('mail_template_index')
+                },
+                {
+                    'divider': true
+                },
+                {
+                    'title': 'Cправочники',
+                    'url': path('admin_catalog_type_index')
+                },
+                {
+                    'divider': true
+                },
+                {
+                    'title': 'Учебные курсы',
+                    'url': path('training_course_index')
+                },
+                {
+                    'title': 'Сертификаты',
+                    'url': '#'
+                },
+                {
+                    'divider': true
+                },
+                {
+                    'title': 'Сайты',
+                    'url': path('site_index')
+                }
+            ]
+        },
+        {
+            'title': app.user.fullName,
+            'items': [
+                {
+                    'title': 'Мой профиль',
+                    'url': path('profile')
+                },
+                {
+                    'divider': true
+                },
+                {
+                    'title': 'Выход',
+                    'url': path('logout')
+                }
+            ]
+        },
+    ] %}
+    <nav class="navbar navbar-expand-md navbar-dark bg-primary d-flex justify-content-between">
+        <a class="navbar-brand" href="#">Единая Web-платформа</a>
+        <ul class="navbar-nav navbar-right">
+            {% for item in navbar %}
+                {% if item.visible is not defined or item.visible is same as(true) %}
+                    <li class="nav-item{% if item.items is defined %} dropdown{% endif %}">
+                        {% if item.url is defined %}
+                            <a class="nav-link" href="{{ item.url }}">{{ item.title }}</a>
+                        {% else %}
+                            {% if item.items is defined %}
+                                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">{{ item.title }}</a>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    {% for subitem in item.items %}
+                                        {% if subitem.divider is defined %}
+                                            <div class="dropdown-divider"></div>
+                                        {% else %}
+                                            <a class="dropdown-item" href="{{ subitem.url }}">{{ subitem.title }}</a>
+                                        {% endif %}
+                                    {% endfor %}
+                                </div>
+                            {% else %}
+                                <a class="nav-link" href="#">{{ item.title }}</a>
+                            {% endif %}
+                        {% endif %}
+                    </li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+    </nav>
+    <div class="main">
+        <div class="content">
+            {% block content %}{% endblock %}
+        </div>
+    </div>
+{% endblock %}

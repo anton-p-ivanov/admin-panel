@@ -1,0 +1,16 @@
+{% extends "empty.html.twig" %}
+
+{% block content %}
+
+    {{ include('accounts/managers/_form.html.twig', {
+        'title': 'Назначение менеджера',
+        'params': {
+            'action': path('account_manager_new', {'uuid': manager.account.uuid}),
+            'attr': {
+                'id': 'account-manager-form',
+                'data-container': '#account-managers'
+            }
+        }}
+    ) }}
+
+{% endblock %}

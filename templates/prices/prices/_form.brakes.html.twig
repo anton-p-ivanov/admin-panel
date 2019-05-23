@@ -1,0 +1,55 @@
+<div id="element_price_brakes">
+    <table class="table table-borderless table-sm mb-0">
+        <colgroup>
+            <col span="3">
+            <col style="width:40px">
+        </colgroup>
+        <thead>
+        <tr>
+            <th class="align-middle">Мин. (шт.)</th>
+            <th class="align-middle">Макс. (шт.)</th>
+            <th class="align-middle">Цена</th>
+            <th class="align-middle">
+                <a href="#" class="btn btn-sm btn-outline-primary px-1" data-toggle="add">
+                    <span class="material-icons">add</span>
+                </a>
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for brake in price.brakes %}
+            <tr>
+                <td style="white-space: normal;">
+                    {{ form_widget(brake.min) }}
+                    {{ form_errors(brake.min) }}
+                </td>
+                <td style="white-space: normal;">
+                    {{ form_widget(brake.max) }}
+                    {{ form_errors(brake.max) }}
+                </td>
+                <td style="white-space: normal;">
+                    {{ form_widget(brake.value) }}
+                    {{ form_errors(brake.value) }}
+                </td>
+                <td>
+                    <a href="#" class="btn btn-outline-secondary px-1" data-toggle="remove">
+                        <span class="material-icons">remove</span>
+                    </a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    {{ form_errors(price.brakes) }}
+</div>
+
+<div class="small mt-3">
+    <p>Правила ввода диапазонов цен</p>
+    <ul>
+        <li>цена указывается в выбранной валюте;</li>
+        <li>цена не может быть меньше MinLevel;</li>
+        <li>диапазоны <code>min-max</code> не должны пересекаться;</li>
+        <li>между диапазонами <code>min-max</code> не должно быть разрывов;</li>
+        <li>для указания неограниченной верхней границы диапазона установите значение <code>max</code> равным <code>0</code>.</li>
+    </ul>
+</div>

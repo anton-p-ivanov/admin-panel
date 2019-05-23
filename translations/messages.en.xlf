@@ -1,0 +1,354 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="en" datatype="plaintext" original="file.ext">
+        <body>
+            <!-- General -->
+            <trans-unit id="yes">
+                <source>yes</source>
+                <target>Yes</target>
+            </trans-unit>
+            <trans-unit id="no">
+                <source>no</source>
+                <target>No</target>
+            </trans-unit>
+
+            <!-- General form buttons -->
+            <trans-unit id="form.button.submit">
+                <source>form.button.submit</source>
+                <target>Save</target>
+            </trans-unit>
+            <trans-unit id="form.button.apply">
+                <source>form.button.apply</source>
+                <target>Apply</target>
+            </trans-unit>
+            <trans-unit id="form.button.return">
+                <source>form.button.return</source>
+                <target>Back to list</target>
+            </trans-unit>
+
+            <!-- General form labels -->
+            <trans-unit id="form.label.title">
+                <source>form.label.title</source>
+                <target>Title</target>
+            </trans-unit>
+            <trans-unit id="form.label.url">
+                <source>form.label.url</source>
+                <target>URL</target>
+            </trans-unit>
+            <trans-unit id="form.label.email">
+                <source>form.label.email</source>
+                <target>E-Mail</target>
+            </trans-unit>
+            <trans-unit id="form.label.code">
+                <source>form.label.code</source>
+                <target>Unique symbolic code</target>
+            </trans-unit>
+            <trans-unit id="form.label.sort">
+                <source>form.label.sort</source>
+                <target>Sorting index</target>
+            </trans-unit>
+            <trans-unit id="form.label.is_active">
+                <source>form.label.is_active</source>
+                <target>Is active</target>
+            </trans-unit>
+            <trans-unit id="form.label.is_default">
+                <source>form.label.is_default</source>
+                <target>Is default</target>
+            </trans-unit>
+            <trans-unit id="form.label.description">
+                <source>form.label.description</source>
+                <target>Description</target>
+            </trans-unit>
+
+            <!-- General form placeholders -->
+            <trans-unit id="form.placeholder.first_name">
+                <source>form.placeholder.first_name</source>
+                <target>James</target>
+            </trans-unit>
+            <trans-unit id="form.placeholder.last_name">
+                <source>form.placeholder.last_name</source>
+                <target>Smith</target>
+            </trans-unit>
+            <trans-unit id="form.placeholder.email">
+                <source>form.placeholder.email</source>
+                <target>james.smith@email.com</target>
+            </trans-unit>
+            <trans-unit id="form.placeholder.url">
+                <source>form.placeholder.url</source>
+                <target>www.website.com</target>
+            </trans-unit>
+            <trans-unit id="form.placeholder.password">
+                <source>form.placeholder.password</source>
+                <target>Your strong password</target>
+            </trans-unit>
+            <trans-unit id="form.placeholder.repeat_password">
+                <source>form.placeholder.repeat_password</source>
+                <target>Repeat your password one time</target>
+            </trans-unit>
+            <trans-unit id="form.placeholder.checkword">
+                <source>form.placeholder.checkword</source>
+                <target>Was sent to your E-Mail</target>
+            </trans-unit>
+            <trans-unit id="form.placeholder.title">
+                <source>form.placeholder.title</source>
+                <target>New element</target>
+            </trans-unit>
+            <trans-unit id="form.placeholder.code">
+                <source>form.placeholder.code</source>
+                <target>NEW_ELEMENT</target>
+            </trans-unit>
+            <trans-unit id="form.placeholder.description">
+                <source>form.placeholder.description</source>
+                <target>Short description of an element</target>
+            </trans-unit>
+
+            <!-- General form hints -->
+            <trans-unit id="form.hint.title">
+                <source>form.hint.title</source>
+                <target>Maximum 255 characters allowed. Must not contain any HTML/XML tags.</target>
+            </trans-unit>
+            <trans-unit id="form.hint.description">
+                <source>form.hint.description</source>
+                <target>Maximum 1000 characters allowed. Must not contain any HTML/XML tags.</target>
+            </trans-unit>
+            <trans-unit id="form.hint.url">
+                <source>form.hint.url</source>
+                <target>Valid URL address required. If no schema is specified, HTTPS is used.</target>
+            </trans-unit>
+            <trans-unit id="form.hint.email">
+                <source>form.hint.email</source>
+                <target>Valid E-Mail required. See RFC 5822 for more info.</target>
+            </trans-unit>
+            <trans-unit id="form.hint.code">
+                <source>form.hint.code</source>
+                <target>Maximum 255 characters allowed. Must contain letters, numbers and underscores only.</target>
+            </trans-unit>
+            <trans-unit id="form.hint.sort">
+                <source>form.hint.sort</source>
+                <target>Must be a positive integer value. Default is 100.</target>
+            </trans-unit>
+
+            <!-- General form flashes -->
+            <trans-unit id="form.flash.created">
+                <source>form.flash.created</source>
+                <target>An element successfully created</target>
+            </trans-unit>
+            <trans-unit id="form.flash.updated">
+                <source>form.flash.updated</source>
+                <target>Changes are made successfully saved</target>
+            </trans-unit>
+
+            <!-- Profile reset form -->
+            <trans-unit id="form.reset.username">
+                <source>form.reset.username</source>
+                <target>Enter an E-Mail address used to register your profile</target>
+            </trans-unit>
+            <trans-unit id="form.reset.title">
+                <source>form.reset.title</source>
+                <target>Password reset</target>
+            </trans-unit>
+            <trans-unit id="form.reset.submit">
+                <source>form.reset.submit</source>
+                <target>Reset password</target>
+            </trans-unit>
+            <trans-unit id="form.reset.login">
+                <source>form.reset.login</source>
+                <target>Back to login</target>
+            </trans-unit>
+            <trans-unit id="form.reset.invalid_username">
+                <source>form.reset.invalid_username</source>
+                <target>Profile not found</target>
+            </trans-unit>
+            <trans-unit id="form.reset.mail_not_sent">
+                <source>form.reset.mail_not_sent</source>
+                <target>Could not send checkword via E-Mail.</target>
+            </trans-unit>
+            <trans-unit id="form.password.title">
+                <source>form.password.title</source>
+                <target>Set new password</target>
+            </trans-unit>
+            <trans-unit id="form.password.username">
+                <source>form.password.username</source>
+                <target>E-Mail</target>
+            </trans-unit>
+            <trans-unit id="form.password.checkword">
+                <source>form.password.checkword</source>
+                <target>Checkword</target>
+            </trans-unit>
+            <trans-unit id="form.password.password">
+                <source>form.password.password</source>
+                <target>New password</target>
+            </trans-unit>
+            <trans-unit id="form.password.password_repeat">
+                <source>form.password.password_repeat</source>
+                <target>Repeat new password</target>
+            </trans-unit>
+            <trans-unit id="form.password.submit">
+                <source>form.password.submit</source>
+                <target>Set password</target>
+            </trans-unit>
+            <trans-unit id="form.password.invalid_username_or_checkword">
+                <source>form.password.invalid_username_or_checkword</source>
+                <target>Invalid username or checkword.</target>
+            </trans-unit>
+            <trans-unit id="form.login.welcome">
+                <source>form.login.welcome</source>
+                <target>Welcome!</target>
+            </trans-unit>
+            <trans-unit id="form.login.password">
+                <source>form.login.password</source>
+                <target>Password</target>
+            </trans-unit>
+            <trans-unit id="form.login.remember_me">
+                <source>form.login.remember_me</source>
+                <target>Keep me logged in</target>
+            </trans-unit>
+            <trans-unit id="form.login.submit">
+                <source>form.login.submit</source>
+                <target>Login</target>
+            </trans-unit>
+            <trans-unit id="form.login.register_link">
+                <source>form.login.register_link</source>
+                <target>Register a new profile</target>
+            </trans-unit>
+            <trans-unit id="form.login.reset_link">
+                <source>form.login.reset_link</source>
+                <target>Reset forgotten password</target>
+            </trans-unit>
+
+            <!-- Profile form -->
+            <trans-unit id="form.profile.username">
+                <source>form.profile.username</source>
+                <target>E-Mail</target>
+            </trans-unit>
+            <trans-unit id="form.profile.password">
+                <source>form.profile.password</source>
+                <target>Password</target>
+            </trans-unit>
+            <trans-unit id="form.profile.password_repeat">
+                <source>form.profile.password_repeat</source>
+                <target>Repeat password</target>
+            </trans-unit>
+            <trans-unit id="form.profile.first_name">
+                <source>form.profile.first_name</source>
+                <target>First name</target>
+            </trans-unit>
+            <trans-unit id="form.profile.last_name">
+                <source>form.profile.last_name</source>
+                <target>Last name</target>
+            </trans-unit>
+            <trans-unit id="form.profile.middle_name">
+                <source>form.profile.middle_name</source>
+                <target>Middle name (optional)</target>
+            </trans-unit>
+            <trans-unit id="form.profile.title">
+                <source>form.profile.title</source>
+                <target>My profile</target>
+            </trans-unit>
+            <trans-unit id="form.profile.submit">
+                <source>form.profile.submit</source>
+                <target>Save</target>
+            </trans-unit>
+            <trans-unit id="form.profile.success">
+                <source>form.profile.success</source>
+                <target>Changes successfully saved</target>
+            </trans-unit>
+            <trans-unit id="form.profile.password_history">
+                <source>form.profile.password_history</source>
+                <target>Passwords history</target>
+            </trans-unit>
+            <trans-unit id="form.profile.password_issued">
+                <source>form.profile.password_issued</source>
+                <target>Issued at</target>
+            </trans-unit>
+            <trans-unit id="form.profile.password_expired">
+                <source>form.profile.password_expired</source>
+                <target>Expired</target>
+            </trans-unit>
+
+            <!-- Profile register form -->
+            <trans-unit id="form.register.title">
+                <source>form.register.title</source>
+                <target>Register new profile</target>
+            </trans-unit>
+            <trans-unit id="form.register.submit">
+                <source>form.register.submit</source>
+                <target>Register</target>
+            </trans-unit>
+            <trans-unit id="form.register.login_link">
+                <source>form.register.login_link</source>
+                <target>Back to login</target>
+            </trans-unit>
+
+            <!-- Profile confirm -->
+            <trans-unit id="profile.confirm.success">
+                <source>profile.confirm.success</source>
+                <target>Your profile successfully confirmed.</target>
+            </trans-unit>
+
+            <!-- Table -->
+            <trans-unit id="table.empty">
+                <source>table.empty</source>
+                <target>No records found</target>
+            </trans-unit>
+
+            <!-- Table head -->
+            <trans-unit id="table.head.title">
+                <source>table.head.title</source>
+                <target>Title</target>
+            </trans-unit>
+            <trans-unit id="table.head.is_active">
+                <source>table.head.is_active</source>
+                <target>Act.</target>
+            </trans-unit>
+            <trans-unit id="table.head.is_default">
+                <source>table.head.is_default</source>
+                <target>Def.</target>
+            </trans-unit>
+            <trans-unit id="table.head.sort">
+                <source>table.head.sort</source>
+                <target>Sort</target>
+            </trans-unit>
+            <trans-unit id="table.head.updated_at">
+                <source>table.head.updated_at</source>
+                <target>Updated at</target>
+            </trans-unit>
+            <trans-unit id="table.head.url">
+                <source>table.head.url</source>
+                <target>URL</target>
+            </trans-unit>
+            <trans-unit id="table.head.code">
+                <source>table.head.code</source>
+                <target>Code</target>
+            </trans-unit>
+            <trans-unit id="table.head.description">
+                <source>table.head.description</source>
+                <target>Description</target>
+            </trans-unit>
+
+            <!-- Table toolbar -->
+            <trans-unit id="table.toolbar.create">
+                <source>table.toolbar.create</source>
+                <target>Create new</target>
+            </trans-unit>
+
+            <!-- Table actions -->
+            <trans-unit id="table.action.edit">
+                <source>table.action.edit</source>
+                <target>Edit</target>
+            </trans-unit>
+            <trans-unit id="table.action.copy">
+                <source>table.action.copy</source>
+                <target>Copy</target>
+            </trans-unit>
+            <trans-unit id="table.action.copy_deep">
+                <source>table.action.copy_deep</source>
+                <target>Copy (with relatives)</target>
+            </trans-unit>
+            <trans-unit id="table.action.delete">
+                <source>table.action.delete</source>
+                <target>Delete</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

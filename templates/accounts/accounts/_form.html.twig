@@ -1,0 +1,66 @@
+{{ form_start(form, params) }}
+<div class="modal-dialog modal-lg modal-dialog-centered" style="max-width: 1000px;">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title">{{ title }}</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body" style="height:605px;">
+            {{ include('tabs.html.twig', {'tabs': [
+                {
+                    'title': 'Контрагент',
+                    'target': 'form-base',
+                    'view': 'accounts/accounts/_form.base.html.twig',
+                },
+                {
+                    'title': 'Адреса',
+                    'target': 'account-addresses',
+                    'path': account.uuid ? path('account_address_index', {'uuid': account.uuid}) : null,
+                    'visible': account.uuid is not null
+                },
+                {
+                    'title': 'Контакты',
+                    'target': 'account-contacts',
+                    'path': account.uuid ? path('account_contact_index', {'uuid': account.uuid}) : null,
+                    'visible': account.uuid is not null
+                },
+                {
+                    'title': 'Статусы',
+                    'target': 'account-statuses',
+                    'path': account.uuid ? path('account_status_index', {'uuid': account.uuid}) : null,
+                    'visible': account.uuid is not null
+                },
+                {
+                    'title': 'Менеджеры',
+                    'target': 'account-managers',
+                    'path': account.uuid ? path('account_manager_index', {'uuid': account.uuid}) : null,
+                    'visible': account.uuid is not null
+                },
+                {
+                    'title': 'Скидки',
+                    'target': 'account-discounts',
+                    'path': account.uuid ? path('account_discount_index', {'uuid': account.uuid}) : null,
+                    'visible': account.uuid is not null
+                },
+                {
+                    'title': 'Коды',
+                    'target': 'account-codes',
+                    'path': account.uuid ? path('account_code_index', {'uuid': account.uuid}) : null,
+                    'visible': account.uuid is not null
+                },
+                {
+                    'title': 'Дополнительно',
+                    'target': 'account-extra',
+                    'view': 'accounts/accounts/_form.extra.html.twig'
+                }
+            ]}) }}
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Отменить</button>
+            <button type="submit" class="btn btn-primary">Подтвердить</button>
+        </div>
+    </div>
+</div>
+{{ form_end(form) }}

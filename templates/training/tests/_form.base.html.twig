@@ -1,0 +1,46 @@
+<div class="form-group">
+    {{ form_widget(form.isActive, {'label': 'form.label.is_active'}) }}
+<small class="form-text text-muted">
+        Определяет активность учебного теста, связанных с ним элементов и его публичную доступность.
+    </small>
+</div>
+<div class="form-group">
+    {{ form_label(form.title, 'form.label.title') }}
+    {{ form_widget(form.title, {'attr': {'autofocus': true}}) }}
+    {{ form_errors(form.title) }}
+    <small class="form-text text-muted">
+        {{ 'form.hint.title'| trans }}
+    </small>
+</div>
+<div class="form-group">
+    {{ form_label(form.description, 'form.label.description') }}
+    {{ form_widget(form.description, {'attr': {'rows': 5}}) }}
+    {{ form_errors(form.description) }}
+    <small class="form-text text-muted">
+        {{ 'form.hint.description'| trans }}
+    </small>
+</div>
+<div class="row">
+    <div class="col-sm">
+        <div class="form-group">
+            {{ form_widget(form.isRandomQuestions, {
+                'label': 'training.test.form.label.is_random_questions',
+                'translation_domain': 'training'
+            }) }}
+            <small class="form-text text-muted">
+                Формирует список вопросов в произвольном порядке.
+            </small>
+        </div>
+    </div>
+    <div class="col-sm">
+        <div class="form-group">
+            {{ form_widget(form.isRandomAnswers, {
+                'label': 'training.test.form.label.is_random_answers',
+                'translation_domain': 'training'
+            }) }}
+            <small class="form-text text-muted">
+                Формирует список ответов на каждый вопрос в произвольном порядке.
+            </small>
+        </div>
+    </div>
+</div>

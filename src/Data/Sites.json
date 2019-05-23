@@ -1,0 +1,26 @@
+[
+  {
+    "title": "Control Panel",
+    "url": "https://domain.com",
+    "email": "Control Panel <webmaster@aladdin-rd.ru>",
+    "code": "ADMIN"
+  },
+  {
+    "title": "Timber Industries",
+    "url": "https://www.timber-industries.com",
+    "email": "Timber Industries <noreply@timber-industries.com>",
+    "code": "TIMBER_INDUSTRIES"
+  },
+  {
+    "title": "Jupiter Brews",
+    "url": "https://www.jupiter-brews.com",
+    "email": "Jupiter Brews <noreply@jupiter-brews.com>",
+    "code": "JUPITER_BREWS"
+  },
+  {
+    "title": "Amazon Foods",
+    "url": "https://www.amazon-foods.com",
+    "email": "Amazon Foods <noreply@amazon-foods.com>",
+    "code": "AMAZON FOODS"
+  }
+]

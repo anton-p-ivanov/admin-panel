@@ -1,0 +1,16 @@
+{% extends "empty.html.twig" %}
+
+{% block content %}
+
+    {{ include('prices/discounts/_form.html.twig', {
+        'title': 'Добавление скидки',
+        'params': {
+            'action': path('price_discount_new', {'uuid': discount.price.uuid}),
+            'attr': {
+                'id': 'price-discount-form',
+                'data-container': '#form-discounts'
+            }
+        }}
+    ) }}
+
+{% endblock %}

@@ -1,0 +1,62 @@
+{% set view = '_selector' %}
+{{ include('storage/storage/_path.html.twig', {'params': {'view': view}}) }}
+<table class="table table-sm table-striped table-borderless">
+    <colgroup>
+        <col>
+        <col style="width:120px">
+        <col style="width:150px">
+    </colgroup>
+    <thead>
+    <tr>
+        <th>Файл/папка</th>
+        <th>Размер</th>
+        <th>Обновлено</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for item in paginator %}
+        <tr>
+            <td>
+                <span class="storage-title storage-title-{{ item.storage.isDirectory ? 'd' : 'i' }}">
+                    {% if item.storage.isDirectory %}
+                        <a href="{{ path('storage_index', {'uuid': item.uuid, 'view': view}) }}" title="Открыть содержимое папки" data-refresh="#storage-list">{{ item.storage.title }}</a>
+                    {% else %}
+                        <input type="radio" name="selection" value="{{ {'uuid': item.storage.uuid, 'title': item.storage.title} | json_encode }}"{% if item.storage.type == 'D' %} disabled="disabled"{% endif %} title="Выбрать файл">
+                        <span>{{ item.storage.title }}</span>
+                    {% endif %}
+                    <span class="text-muted ml-3">{{ item.storage.description }}</span>
+                </span>
+            </td>
+            <td>
+                {% if not item.storage.isDirectory %}
+                    {% if item.storage.file is not null %}
+                        {{ item.storage.file.size | size }}
+                    {% else %}
+                        <em>&mdash;</em>
+                    {% endif %}
+                {% endif %}
+            </td>
+            <td>
+                {% if item.storage.workflow is not null %}
+                    {{ item.storage.workflow.updatedAt | date }}
+                {% else %}
+                    <em class="text-muted">Нет данных</em>
+                {% endif %}
+            </td>
+        </tr>
+    {% else %}
+        <tr>
+            <td colspan="4">{{ 'table.empty' | trans }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+{{ include('paginator.html.twig', {
+    'path': 'storage_index',
+    'class': ['pagination-sm'],
+    'params': {
+        'uuid': node is null ? 'root' : node.uuid,
+        'view': view
+    }
+}) }}

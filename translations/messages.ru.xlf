@@ -1,0 +1,378 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="ru" datatype="plaintext" original="file.ext">
+        <body>
+            <!-- General -->
+            <trans-unit id="yes">
+                <source>yes</source>
+                <target>Да</target>
+            </trans-unit>
+            <trans-unit id="no">
+                <source>no</source>
+                <target>Нет</target>
+            </trans-unit>
+
+            <!-- General form buttons -->
+            <trans-unit id="form.button.submit">
+                <source>form.button.submit</source>
+                <target>Сохранить</target>
+            </trans-unit>
+            <trans-unit id="form.button.apply">
+                <source>form.button.apply</source>
+                <target>Применить</target>
+            </trans-unit>
+            <trans-unit id="form.button.return">
+                <source>form.button.return</source>
+                <target>Назад к списку</target>
+            </trans-unit>
+
+            <!-- General form labels -->
+            <trans-unit id="form.label.title">
+                <source>form.label.title</source>
+                <target>Название</target>
+            </trans-unit>
+            <trans-unit id="form.label.url">
+                <source>form.label.url</source>
+                <target>URL</target>
+            </trans-unit>
+            <trans-unit id="form.label.email">
+                <source>form.label.email</source>
+                <target>E-Mail</target>
+            </trans-unit>
+            <trans-unit id="form.label.code">
+                <source>form.label.code</source>
+                <target>Уникальный символьный код</target>
+            </trans-unit>
+            <trans-unit id="form.label.sort">
+                <source>form.label.sort</source>
+                <target>Индекс сортировки</target>
+            </trans-unit>
+            <trans-unit id="form.label.is_active">
+                <source>form.label.is_active</source>
+                <target>Активность</target>
+            </trans-unit>
+            <trans-unit id="form.label.is_default">
+                <source>form.label.is_default</source>
+                <target>По-умолчанию</target>
+            </trans-unit>
+            <trans-unit id="form.label.description">
+                <source>form.label.description</source>
+                <target>Краткое описание</target>
+            </trans-unit>
+            <trans-unit id="form.label.phone">
+                <source>form.label.phone</source>
+                <target>Телефон</target>
+            </trans-unit>
+
+            <!-- General form placeholders -->
+            <trans-unit id="form.placeholder.first_name">
+                <source>form.placeholder.first_name</source>
+                <target>Иван</target>
+            </trans-unit>
+            <trans-unit id="form.placeholder.last_name">
+                <source>form.placeholder.last_name</source>
+                <target>Иванов</target>
+            </trans-unit>
+            <trans-unit id="form.placeholder.email">
+                <source>form.placeholder.email</source>
+                <target>ivan.ivanov@email.com</target>
+            </trans-unit>
+            <trans-unit id="form.placeholder.url">
+                <source>form.placeholder.url</source>
+                <target>www.website.com</target>
+            </trans-unit>
+            <trans-unit id="form.placeholder.password">
+                <source>form.placeholder.password</source>
+                <target>Придумайте сложный пароль</target>
+            </trans-unit>
+            <trans-unit id="form.placeholder.repeat_password">
+                <source>form.placeholder.repeat_password</source>
+                <target>Повторите пароль ещё раз</target>
+            </trans-unit>
+            <trans-unit id="form.placeholder.checkword">
+                <source>form.placeholder.checkword</source>
+                <target>Отправлена на ваш E-Mail</target>
+            </trans-unit>
+            <trans-unit id="form.placeholder.title">
+                <source>form.placeholder.title</source>
+                <target>Новый элемент</target>
+            </trans-unit>
+            <trans-unit id="form.placeholder.code">
+                <source>form.placeholder.code</source>
+                <target>NEW_ELEMENT</target>
+            </trans-unit>
+            <trans-unit id="form.placeholder.description">
+                <source>form.placeholder.description</source>
+                <target>Краткое описание элемента</target>
+            </trans-unit>
+            <trans-unit id="form.placeholder.phone">
+                <source>form.placeholder.phone</source>
+                <target>+7 (123) 1234567</target>
+            </trans-unit>
+
+            <!-- General form hints -->
+            <trans-unit id="form.hint.title">
+                <source>form.hint.title</source>
+                <target>Допускается не более 255 символов. Поле не должно содержать HTML/XML тегов.</target>
+            </trans-unit>
+            <trans-unit id="form.hint.description">
+                <source>form.hint.description</source>
+                <target>Допускается не более 1000 символов. Поле не должно содержать HTML/XML тегов.</target>
+            </trans-unit>
+            <trans-unit id="form.hint.url">
+                <source>form.hint.url</source>
+                <target>Требуется валидный адрес URL. Если схема не указана, используется HTTPS.</target>
+            </trans-unit>
+            <trans-unit id="form.hint.email">
+                <source>form.hint.email</source>
+                <target>Требуется валидный E-Mail. Подробнее см. RFC 5822.</target>
+            </trans-unit>
+            <trans-unit id="form.hint.code">
+                <source>form.hint.code</source>
+                <target>Допускаются буквы, цифры и символы подчеркивания общей длиной не более 255 символов.</target>
+            </trans-unit>
+            <trans-unit id="form.hint.sort">
+                <source>form.hint.sort</source>
+                <target>Целое число больше 0. По-умолчанию равен 100.</target>
+            </trans-unit>
+            <trans-unit id="form.hint.phone">
+                <source>form.hint.phone</source>
+                <target>Укажите номер телефона в международном формате.</target>
+            </trans-unit>
+
+            <!-- General form flashes -->
+            <trans-unit id="form.flash.created">
+                <source>form.flash.created</source>
+                <target>Элемент успешно создан</target>
+            </trans-unit>
+            <trans-unit id="form.flash.updated">
+                <source>form.flash.updated</source>
+                <target>Изменения успешно сохранены</target>
+            </trans-unit>
+
+            <!-- Profile reset form -->
+            <trans-unit id="form.reset.username">
+                <source>form.reset.username</source>
+                <target>Введите адрес E-Mail, который использовался при регистрации вашей учётной записи</target>
+            </trans-unit>
+            <trans-unit id="form.reset.title">
+                <source>form.reset.title</source>
+                <target>Сброс пароля</target>
+            </trans-unit>
+            <trans-unit id="form.reset.submit">
+                <source>form.reset.submit</source>
+                <target>Сбросить пароль</target>
+            </trans-unit>
+            <trans-unit id="form.reset.login">
+                <source>form.reset.login</source>
+                <target>Авторизация</target>
+            </trans-unit>
+            <trans-unit id="form.reset.invalid_username">
+                <source>form.reset.invalid_username</source>
+                <target>Учётная запись не найдена</target>
+            </trans-unit>
+            <trans-unit id="form.reset.mail_not_sent">
+                <source>form.reset.mail_not_sent</source>
+                <target>Не удалось отправить контрольную строку на указанный E-Mail.</target>
+            </trans-unit>
+            <trans-unit id="form.password.title">
+                <source>form.password.title</source>
+                <target>Установка нового пароля</target>
+            </trans-unit>
+            <trans-unit id="form.password.username">
+                <source>form.password.username</source>
+                <target>E-Mail</target>
+            </trans-unit>
+            <trans-unit id="form.password.checkword">
+                <source>form.password.checkword</source>
+                <target>Контрольная строка</target>
+            </trans-unit>
+            <trans-unit id="form.password.password">
+                <source>form.password.password</source>
+                <target>Новый пароль</target>
+            </trans-unit>
+            <trans-unit id="form.password.password_repeat">
+                <source>form.password.password_repeat</source>
+                <target>Повторите новый пароль</target>
+            </trans-unit>
+            <trans-unit id="form.password.submit">
+                <source>form.password.submit</source>
+                <target>Установить</target>
+            </trans-unit>
+            <trans-unit id="form.password.invalid_username_or_checkword">
+                <source>form.password.invalid_username_or_checkword</source>
+                <target>Контрольная строка или E-Mail пользователя указаны неверно.</target>
+            </trans-unit>
+            <trans-unit id="form.login.welcome">
+                <source>form.login.welcome</source>
+                <target>Добро пожаловать!</target>
+            </trans-unit>
+            <trans-unit id="form.login.password">
+                <source>form.login.password</source>
+                <target>Пароль</target>
+            </trans-unit>
+            <trans-unit id="form.login.remember_me">
+                <source>form.login.remember_me</source>
+                <target>Запомнить меня</target>
+            </trans-unit>
+            <trans-unit id="form.login.submit">
+                <source>form.login.submit</source>
+                <target>Войти</target>
+            </trans-unit>
+            <trans-unit id="form.login.register_link">
+                <source>form.login.register_link</source>
+                <target>Регистрация новой учётной записи</target>
+            </trans-unit>
+            <trans-unit id="form.login.reset_link">
+                <source>form.login.reset_link</source>
+                <target>Сброс забытого пароля</target>
+            </trans-unit>
+
+            <!-- Profile form -->
+            <trans-unit id="form.profile.username">
+                <source>form.profile.username</source>
+                <target>E-Mail</target>
+            </trans-unit>
+            <trans-unit id="form.profile.password">
+                <source>form.profile.password</source>
+                <target>Пароль</target>
+            </trans-unit>
+            <trans-unit id="form.profile.password_repeat">
+                <source>form.profile.password_repeat</source>
+                <target>Повторите пароль</target>
+            </trans-unit>
+            <trans-unit id="form.profile.first_name">
+                <source>form.profile.first_name</source>
+                <target>Имя</target>
+            </trans-unit>
+            <trans-unit id="form.profile.last_name">
+                <source>form.profile.last_name</source>
+                <target>Фамилия</target>
+            </trans-unit>
+            <trans-unit id="form.profile.middle_name">
+                <source>form.profile.middle_name</source>
+                <target>Отчество (не обязательно)</target>
+            </trans-unit>
+            <trans-unit id="form.profile.title">
+                <source>form.profile.title</source>
+                <target>Моя учётная запись</target>
+            </trans-unit>
+            <trans-unit id="form.profile.submit">
+                <source>form.profile.submit</source>
+                <target>Сохранить</target>
+            </trans-unit>
+            <trans-unit id="form.profile.success">
+                <source>profile.success</source>
+                <target>Изменения успешно сохранены</target>
+            </trans-unit>
+            <trans-unit id="form.profile.password_history">
+                <source>form.profile.password_history</source>
+                <target>История смены паролей</target>
+            </trans-unit>
+            <trans-unit id="form.profile.password_issued">
+                <source>form.profile.password_issued</source>
+                <target>Выдан</target>
+            </trans-unit>
+            <trans-unit id="form.profile.password_expired">
+                <source>form.profile.password_expired</source>
+                <target>Истёк</target>
+            </trans-unit>
+
+            <!-- Profile register form -->
+            <trans-unit id="form.register.title">
+                <source>form.register.title</source>
+                <target>Регистрация новой учётной записи</target>
+            </trans-unit>
+            <trans-unit id="form.register.submit">
+                <source>form.register.submit</source>
+                <target>Регистрация</target>
+            </trans-unit>
+            <trans-unit id="form.register.login_link">
+                <source>form.register.login_link</source>
+                <target>Авторизация</target>
+            </trans-unit>
+
+            <!-- Profile confirm -->
+            <trans-unit id="profile.confirm.success">
+                <source>profile.confirm.success</source>
+                <target>Ваша учётная запись успешно активирована.</target>
+            </trans-unit>
+
+            <!-- Table -->
+            <trans-unit id="table.empty">
+                <source>table.empty</source>
+                <target>Записи не найдены</target>
+            </trans-unit>
+
+            <!-- Table head -->
+            <trans-unit id="table.head.title">
+                <source>table.head.title</source>
+                <target>Название</target>
+            </trans-unit>
+            <trans-unit id="table.head.is_active">
+                <source>table.head.is_active</source>
+                <target>Акт.</target>
+            </trans-unit>
+            <trans-unit id="table.head.is_default">
+                <source>table.head.is_default</source>
+                <target>Умолч.</target>
+            </trans-unit>
+            <trans-unit id="table.head.sort">
+                <source>table.head.sort</source>
+                <target>Сорт.</target>
+            </trans-unit>
+            <trans-unit id="table.head.updated_at">
+                <source>table.head.updated_at</source>
+                <target>Изменено</target>
+            </trans-unit>
+            <trans-unit id="table.head.url">
+                <source>table.head.url</source>
+                <target>URL</target>
+            </trans-unit>
+            <trans-unit id="table.head.code">
+                <source>table.head.code</source>
+                <target>Код</target>
+            </trans-unit>
+            <trans-unit id="table.head.description">
+                <source>table.head.description</source>
+                <target>Описание</target>
+            </trans-unit>
+
+            <!-- Table toolbar -->
+            <trans-unit id="table.toolbar.create">
+                <source>table.toolbar.create</source>
+                <target>Создать</target>
+            </trans-unit>
+            <trans-unit id="table.toolbar.add">
+                <source>table.toolbar.add</source>
+                <target>Добавить</target>
+            </trans-unit>
+
+            <!-- Table actions -->
+            <trans-unit id="table.action.view">
+                <source>table.action.view</source>
+                <target>Просмотреть</target>
+            </trans-unit>
+            <trans-unit id="table.action.edit">
+                <source>table.action.edit</source>
+                <target>Изменить</target>
+            </trans-unit>
+            <trans-unit id="table.action.copy">
+                <source>table.action.copy</source>
+                <target>Копировать</target>
+            </trans-unit>
+            <trans-unit id="table.action.copy_deep">
+                <source>table.action.copy_deep</source>
+                <target>Копировать (со связями)</target>
+            </trans-unit>
+            <trans-unit id="table.action.delete">
+                <source>table.action.delete</source>
+                <target>Удалить</target>
+            </trans-unit>
+            <trans-unit id="table.action.delete_force">
+                <source>table.action.delete_force</source>
+                <target>Удалить (необратимо)</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

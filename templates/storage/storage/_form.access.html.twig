@@ -1,0 +1,19 @@
+<div class="row">
+    <div class="col">
+        <p><b>Группы пользователей</b></p>
+        <div class="form-group form-group-column">
+            <div class="row">
+            {% for role in form.roles %}
+                {% if loop.index % 10 == 1 %}
+                    <div class="col">
+                {% endif %}
+                        {{ form_widget(role) }}
+                {% if loop.last or (loop.index % 10 == 0) %}
+                    </div>
+                {% endif %}
+            {% endfor %}
+            </div>
+            {{ form_errors(form.roles) }}
+        </div>
+    </div>
+</div>

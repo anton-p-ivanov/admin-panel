@@ -1,0 +1,65 @@
+{% set view = '_selector' %}
+{{ include('catalogs/elements/_path.html.twig', {'params': {'view': view}}) }}
+<table class="table table-sm table-striped table-borderless">
+    <colgroup>
+        <col>
+        <col style="width:70px" span="2">
+        <col style="width:150px">
+    </colgroup>
+    <thead>
+    <tr>
+        <th>Элемент/раздел</th>
+        <th>Акт.</th>
+        <th>Сорт.</th>
+        <th>Обновлено</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for item in paginator %}
+        <tr>
+            <td>
+                <span class="element-title element-title-{{ item.element.isSection ? 's' : 'i' }}">
+                    {% if item.element.isSection %}
+                        <a href="{{ path('catalog_element_index', {'uuid': item.uuid, 'view': view}) }}" title="Открыть содержимое раздела" data-ajax="#elements-list">{{ item.element.title }}</a>
+                    {% else %}
+                        {% if app.request.get('multiple') %}
+                            <input type="checkbox" name="selection[]" data-title="{{ item.element.title }}" value="{{ item.element.uuid }}" title="Выбрать элемент">
+                        {% else %}
+                            <input type="radio" name="selection" data-title="{{ item.element.title }}" value="{{ item.element.uuid }}" title="Выбрать элемент">
+                        {% endif %}
+                        <span title="{{ item.element.title }}">{{ item.element.title }}</span>
+                    {% endif %}
+                    <span class="text-muted ml-3">{{ item.element.description }}</span>
+                </span>
+            </td>
+            <td>
+                {{ item.element.isActive ? 'Да' : 'Нет' }}
+            </td>
+            <td>
+                {{ item.element.sort }}
+            </td>
+            <td>
+                {% if item.element.workflow is not null %}
+                    {{ item.element.workflow.updatedAt | date }}
+                {% else %}
+                    <em class="text-muted">Нет данных</em>
+                {% endif %}
+            </td>
+        </tr>
+    {% else %}
+        <tr>
+            <td colspan="4">{{ 'table.empty' | trans }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+{{ include('paginator.html.twig', {
+    'path': 'catalog_element_index',
+    'class': ['pagination-sm'],
+    'params': {
+        'uuid': node is null ? node : node.uuid,
+        'view': view,
+        'multiple': app.request.get('multiple'),
+    }
+}) }}

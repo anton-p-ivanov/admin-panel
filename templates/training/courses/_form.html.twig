@@ -1,0 +1,62 @@
+{{ form_start(form, params) }}
+<div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title">{{ title }}</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <div class="form-group">
+                {{ form_widget(form.isActive, {'label': 'form.label.is_active'}) }}
+                <small class="form-text text-muted">
+                    Определяет активность учебного курса, связанных с ним элементов и его публичную доступность.
+                </small>
+            </div>
+            <div class="form-group">
+                {{ form_label(form.title, 'form.label.title') }}
+                {{ form_widget(form.title, {'attr': {'autofocus': true, 'placeholder': 'Значение не указано'}}) }}
+                {{ form_errors(form.title) }}
+                <small class="form-text text-muted">
+                    {{ 'form.hint.title'| trans }}
+                </small>
+            </div>
+            <div class="form-group">
+                {{ form_label(form.description, 'form.label.description') }}
+                {{ form_widget(form.description, {'attr': {'rows': 5, 'placeholder': 'Значение не указано'}}) }}
+                {{ form_errors(form.description) }}
+                <small class="form-text text-muted">
+                    {{ 'form.hint.description'| trans }}
+                </small>
+            </div>
+            <div class="row">
+                <div class="col-sm">
+                    <div class="form-group">
+                        {{ form_label(form.code, 'form.label.code') }}
+                        {{ form_widget(form.code, {'attr': {'placeholder': 'Значение по-умолчанию'}}) }}
+                        {{ form_errors(form.code) }}
+                        <small class="form-text text-muted">
+                            {{ 'form.hint.code'| trans }}
+                        </small>
+                    </div>
+                </div>
+                <div class="col-sm">
+                    <div class="form-group">
+                        {{ form_label(form.sort, 'form.label.sort') }}
+                        {{ form_widget(form.sort, {'attr': {'placeholder': 'Значение по-умолчанию'}}) }}
+                        {{ form_errors(form.sort) }}
+                        <small class="form-text text-muted">
+                            {{ 'form.hint.sort'| trans }}
+                        </small>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Отменить</button>
+            <button type="submit" class="btn btn-primary">Подтвердить</button>
+        </div>
+    </div>
+</div>
+{{ form_end(form) }}

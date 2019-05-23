@@ -1,0 +1,21 @@
+{% extends 'main.html.twig' %}
+
+{% block title %}Веб-формы{% endblock %}
+
+{% block content %}
+    <h3 class="page-title">Веб-формы</h3>
+    <div id="forms-list" data-pjax="true">
+        {{ include('forms/forms/_index.html.twig') }}
+    </div>
+
+    {% for item in ['form', 'field', 'status', 'validator', 'value'] %}
+        <div class="modal" id="{{ item }}-modal" tabindex="-1" role="dialog" data-remote="true"></div>
+    {% endfor %}
+
+    {{ include('confirm.html.twig') }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('js/form.fields') }}
+{% endblock %}

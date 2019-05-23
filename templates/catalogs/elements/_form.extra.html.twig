@@ -1,0 +1,82 @@
+<div class="row">
+    <div class="col">
+        <div class="form-group">
+            {{ form_label(form.parentNodes, 'Расположения', {'translation_domain': false}) }}
+            {{ form_widget(form.parentNodes) }}
+            {{ form_errors(form.parentNodes) }}
+        </div>
+    </div>
+    <div class="col">
+        <div class="form-group">
+            {{ form_label(form.status, 'Статус документооборота', {'translation_domain': false}) }}
+            {{ form_widget(form.status) }}
+            {{ form_errors(form.status) }}
+            <small class="form-text text-muted">
+                Элементы в статусе "Черновик" видны и могут быть изменены только Владельцем. Статус "Готов к публикации"
+                позволяет другим пользователям ознакомиться с содержимым элемента, но сохраняет его невидимой для публичного
+                просмотра. Опубликованные элементы готовы к публичному просмотру.
+            </small>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+        <div class="form-group">
+            {{ form_label(form.sort, 'form.label.sort') }}
+            {{ form_widget(form.sort) }}
+            {{ form_errors(form.sort) }}
+            <small class="form-text text-muted">
+                {{ 'form.hint.sort'| trans }}
+            </small>
+        </div>
+        <div class="form-group">
+            {{ form_label(form.code, 'form.label.code') }}
+            {{ form_widget(form.code) }}
+            {{ form_errors(form.code) }}
+            <small class="form-text text-muted">
+                {{ 'form.hint.code'| trans }}
+            </small>
+        </div>
+    </div>
+    <div class="col">
+        <p>Документооборот</p>
+        <table class="table table-striped">
+            <colgroup>
+                <col style="width:100px">
+                <col>
+            </colgroup>
+            <tbody>
+            <tr>
+                <th>Создано</th>
+                <td>
+                    {% if element.workflow.createdAt %}
+                        {{ element.workflow.createdAt | date }}
+                    {% else %}
+                        <em class="text-muted">Нет данных</em>
+                    {% endif %}
+                    {% if element.workflow.created is not null %}
+                        ({{ element.workflow.created.fullName }})
+                    {% else %}
+                        (System User)
+                    {% endif %}
+                </td>
+            </tr>
+            <tr>
+                <th>Изменено</th>
+                <td>
+                    {% if element.workflow.updatedAt %}
+                        {{ element.workflow.updatedAt | date }}
+                    {% else %}
+                        <em class="text-muted">Нет данных</em>
+                    {% endif %}
+                    {% if element.workflow.updated is not null %}
+                        ({{ element.workflow.updated.fullName }})
+                    {% else %}
+                        (System User)
+                    {% endif %}
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

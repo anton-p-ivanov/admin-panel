@@ -1,0 +1,20 @@
+{% extends 'main.html.twig' %}
+
+{% block title %}Обучение / Попытки{% endblock %}
+
+{% block content %}
+    <h3 class="page-title">Обучение / Попытки</h3>
+
+    {% if test is defined %}
+        <div class="alert alert-info">
+            Курс "<a href="{{ path('training_course_index') }}">{{ test.course.title }}</a>" /
+            Тест "<a href="{{ path('training_test_filter', {'uuid': test.course.uuid}) }}">{{ test.title }}</a>"
+        </div>
+    {% endif %}
+
+    <div id="training-attempts-list">
+        {{ include('training/attempts/_index.html.twig') }}
+    </div>
+
+    {{ include('confirm.html.twig') }}
+{% endblock %}

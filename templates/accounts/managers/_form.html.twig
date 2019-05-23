@@ -1,0 +1,42 @@
+{{ form_start(form, params) }}
+<div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title">{{ title }}</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <div class="form-group">
+                {{ form_label(form.manager, 'Менеджер') }}
+                {{ form_widget(form.manager) }}
+                {{ form_errors(form.manager) }}
+                <small class="form-text text-muted">
+                    Выберите одного из доступных менеджеров.
+                </small>
+            </div>
+            <div class="form-group">
+                {{ form_label(form.title, 'Должность') }}
+                {{ form_widget(form.title, {'attr': {'placeholder': 'Значение не установлено'}}) }}
+                {{ form_errors(form.title) }}
+                <small class="form-text text-muted">
+                    Укажите должность менеджера, если она отличается от установленной в его профиле. Не более 255 символов.
+                </small>
+            </div>
+            <div class="form-group">
+                {{ form_label(form.expiredAt, 'Срок действия назначения') }}
+                {{ form_widget(form.expiredAt, {'attr': {'placeholder': 'Не ограничен'}}) }}
+                {{ form_errors(form.expiredAt) }}
+                <small class="form-text text-muted">
+                    Укажите дату и время, до которой действует назначение.
+                </small>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Отменить</button>
+            <button type="submit" class="btn btn-primary">Подтвердить</button>
+        </div>
+    </div>
+</div>
+{{ form_end(form) }}

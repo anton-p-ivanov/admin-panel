@@ -1,0 +1,26 @@
+{% extends 'main.html.twig' %}
+
+{% block title %}Обучение / Уроки{% endblock %}
+
+{% block content %}
+    <h3 class="page-title">Обучение / Уроки</h3>
+
+    {% if course is defined %}
+        <div class="alert alert-info" data-pjax="true">
+            Курс "<a href="{{ path('training_course_index') }}">{{ course.title }}</a>"
+        </div>
+    {% endif %}
+
+    <div id="training-lessons-list">
+        {{ include('training/lessons/_index.html.twig') }}
+    </div>
+
+    <div class="modal" id="form-modal" tabindex="-1" role="dialog" data-remote="true"></div>
+
+    {{ include('confirm.html.twig') }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('js/form.basic') }}
+{% endblock %}

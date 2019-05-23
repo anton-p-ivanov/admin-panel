@@ -1,0 +1,28 @@
+{% set prevPage = (paginator.page > 1 ? (paginator.page - 1) : 1) %}
+{% set nextPage = (paginator.page < paginator.pagesTotal ? (paginator.page + 1) : paginator.pagesTotal) %}
+{% set searchParams = {'search' : app.request.get('search')} %}
+{% set params = params is defined ? params|merge(searchParams) : searchParams %}
+<div class="row align-content-between align-items-center">
+    <div class="col-sm">
+        {% if paginator.pagesTotal > 1 %}
+        <ul class="{{ (class is defined ? class : []) | merge(['pagination', 'mb-0']) | join(' ') }}">
+            <li class="page-item{% if paginator.page == 1 %} disabled{% endif %}">
+                <a class="page-link" href="{{ path(path, params|merge({'page': prevPage})) }}">Пред.</a>
+            </li>
+            {% for page in paginator.pagesRange.min..paginator.pagesRange.max %}
+                <li class="page-item{% if paginator.page == page %} active{% endif %}">
+                    <a class="page-link" href="{{ path(path, params|merge({'page': page})) }}">{{ page }}</a>
+                </li>
+            {% endfor %}
+            <li class="page-item{% if paginator.page == paginator.pagesTotal %} disabled{% endif %}">
+                <a class="page-link" href="{{ path(path, params|merge({'page': nextPage})) }}">След.</a>
+            </li>
+        </ul>
+        {% endif %}
+    </div>
+    <div class="col-sm text-right text-muted">
+        {% if paginator.resulsTotal > 0 %}
+            Показаны записи {{ paginator.firstIndex }} &mdash; {{ paginator.lastIndex }} из {{ paginator.resulsTotal }}
+        {% endif %}
+    </div>
+</div>

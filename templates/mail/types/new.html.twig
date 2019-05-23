@@ -1,0 +1,16 @@
+{% extends "empty.html.twig" %}
+
+{% block content %}
+
+    {{ include('mail/types/_form.html.twig', {
+        'title': 'Создание типа почтового шаблона',
+        'params': {
+            'action': path('mail_type_new'),
+            'attr': {
+                'id': 'mail-type-form',
+                'data-container': '#mail-types'
+            }
+        }}
+    ) }}
+
+{% endblock %}

@@ -1,0 +1,109 @@
+{{ form_start(form, params) }}
+<div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title">{{ title }}</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <div class="row">
+                <div class="col">
+                    <div class="row">
+                        <div class="col-sm">
+                            <div class="form-group">
+                                {{ form_label(form.type, 'Тип') }}
+                                {{ form_widget(form.type) }}
+                                {{ form_errors(form.type) }}
+                            </div>
+                        </div>
+                        <div class="col-sm">
+                            <div class="form-group">
+                                {{ form_label(form.country, 'Страна') }}
+                                {{ form_widget(form.country) }}
+                                {{ form_errors(form.country) }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm">
+                            <div class="form-group">
+                                {{ form_label(form.region, 'Регион/область') }}
+                                {{ form_widget(form.region) }}
+                                {{ form_errors(form.region) }}
+                                <small class="form-text text-muted">
+                                    Допускается не более 255 символов.
+                                </small>
+                            </div>
+                        </div>
+                        <div class="col-sm">
+                            <div class="form-group">
+                                {{ form_label(form.district, 'Район/округ') }}
+                                {{ form_widget(form.district) }}
+                                {{ form_errors(form.district) }}
+                                <small class="form-text text-muted">
+                                    Допускается не более 255 символов.
+                                </small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm">
+                            <div class="form-group">
+                                {{ form_label(form.zip, 'Почтовый индекс') }}
+                                {{ form_widget(form.zip) }}
+                                {{ form_errors(form.zip) }}
+                                <small class="form-text text-muted">
+                                    Допускается не более 50 символов.
+                                </small>
+                            </div>
+                        </div>
+                        <div class="col-sm">
+                            <div class="form-group">
+                                {{ form_label(form.city, 'Город/населенный пункт') }}
+                                {{ form_widget(form.city) }}
+                                {{ form_errors(form.city) }}
+                                <small class="form-text text-muted">
+                                    Допускается не более 255 символов.
+                                </small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4 small text-muted">
+                    <p>Формат ввода адреса:</p>
+                    <p><em>ул. Ленина, д. 1, корп. 3, кв. 7</em></p>
+                    <p>Перечень используемых сокращений:</p>
+                    <table class="w-100" style="line-height: 1rem">
+                        <tbody>
+                        <tr><td><em>обл.</em></td><td>область</td><td><em>пл.</em></td><td>площадь</td></tr>
+                        <tr><td><em>р-н</em></td><td>район</td><td><em>б-р</em></td><td>бульвар</td></tr>
+                        <tr><td><em>г.</em></td><td>город</td><td><em>линия</em></td><td>линия</td></tr>
+                        <tr><td><em>пос.</em></td><td>поселок</td><td><em>ш.</em></td><td>шоссе</td></tr>
+                        <tr><td><em>ул.</em></td><td>улица</td><td><em>д.</em></td><td>дом</td></tr>
+                        <tr><td><em>пр-т</em></td><td>проспект</td><td><em>корп.</em></td><td>корпус</td></tr>
+                        <tr><td><em>пр.</em></td><td>проезд</td><td><em>стр.</em></td><td>строение</td></tr>
+                        <tr><td><em>пер.</em></td><td>переулок</td><td><em>эт.</em></td><td>этаж</td></tr>
+                        <tr><td><em>наб.</em></td><td>набережная</td><td><em>кв.</em></td><td>квартира</td></tr>
+                        <tr><td><em>оф.</em></td><td>офис</td><td><em>пом.</em></td><td>помещение</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="form-group">
+                {{ form_label(form.address, 'Адрес') }}
+                {{ form_widget(form.address) }}
+                {{ form_errors(form.address) }}
+                <small class="form-text text-muted">
+                    Допускается не более 255 символов.
+                </small>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Отменить</button>
+            <button type="submit" class="btn btn-primary">Подтвердить</button>
+        </div>
+    </div>
+</div>
+{{ form_end(form) }}

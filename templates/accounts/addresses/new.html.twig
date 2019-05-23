@@ -1,0 +1,16 @@
+{% extends "empty.html.twig" %}
+
+{% block content %}
+
+    {{ include('accounts/addresses/_form.html.twig', {
+        'title': 'Добавление адреса',
+        'params': {
+            'action': path('account_address_new', {'uuid': account.uuid}),
+            'attr': {
+                'id': 'account-address-form',
+                'data-container': '#account-addresses'
+            }
+        }}
+    ) }}
+
+{% endblock %}

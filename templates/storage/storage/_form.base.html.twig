@@ -1,0 +1,16 @@
+<div class="form-group">
+    {{ form_label(form.title, storage.isDirectory ? 'Название папки' : 'Название файла') }}
+    {{ form_widget(form.title, {'attr': {'autofocus': true}}) }}
+    {{ form_errors(form.title) }}
+    <small class="form-text text-muted">
+        {{ 'form.hint.title'| trans }}
+    </small>
+</div>
+<div class="form-group">
+    {{ form_label(form.description, 'Краткое описание') }}
+    {{ form_widget(form.description, {'attr': {'rows': 7}}) }}
+    {{ form_errors(form.description) }}
+    <small class="form-text text-muted">
+        {{ 'form.hint.description'| trans }}
+    </small>
+</div>

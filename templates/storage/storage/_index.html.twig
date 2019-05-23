@@ -1,0 +1,101 @@
+<div class="btn-toolbar justify-content-between" role="toolbar">
+    <div class="btn-toolbar-container">
+        {% if node is not null %}
+        <div class="btn-group mr-2" role="group">
+            <a class="btn btn-outline-secondary"
+               title="На уровень назад"
+               href="{{ path('storage_index', {'uuid': parent is not null ? parent.uuid : null}) }}">
+                <i class="material-icons btn-block">keyboard_backspace</i>
+            </a>
+        </div>
+        {% endif %}
+        <div class="btn-group mr-2" role="group">
+            <a class="btn btn-outline-primary" href="{{ path('storage_new', {'uuid': node is null ? 'root' : node.uuid}) }}" data-toggle="modal" data-target="#form-modal">Создать папку</a>
+            <a class="btn btn-outline-primary"
+               href="{{ path('storage_upload', {'uuid': node is null ? 'root' : node.uuid}) }}"
+               data-pjax="false"
+               data-toggle="upload"
+               data-target="#storage-list"
+               data-url="{{ path('storage_index', {'uuid': node is not null ? node.uuid : null}) }}">
+                Загрузить файлы
+            </a>
+        </div>
+    </div>
+    <div class="btn-toolbar-container">
+        {{ include('search.html.twig', {'reset': path('storage_index', {'uuid': node is null ? 'root' : node.uuid})}) }}
+    </div>
+</div>
+<br>
+{{ include('storage/storage/_path.html.twig') }}
+<table class="table table-striped table-borderless">
+    <colgroup>
+        <col>
+        <col style="width:150px">
+        <col style="width:150px">
+        <col style="width:50px">
+    </colgroup>
+    <thead>
+    <tr>
+        <th>Файл/папка</th>
+        <th class="text-right">Размер</th>
+        <th>Обновлено</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for item in paginator %}
+        <tr>
+            <td>
+                <span class="storage-title storage-title-{{ item.storage.type | lower }}">
+                    {% if item.storage.isDirectory %}
+                        <a href="{{ path('storage_index', {'uuid': item.uuid}) }}" title="Открыть содержимое папки">{{ item.storage.title }}</a>
+                    {% else %}
+                        <span>{{ item.storage.title }}</span>
+                    {% endif %}
+                    <span class="text-muted ml-3">{{ item.storage.description }}</span>
+                </span>
+            </td>
+            <td class="text-right">
+                {% if not item.storage.isDirectory %}
+                    {% if item.storage.file is not null %}
+                        {{ item.storage.file.size | size }}
+                    {% else %}
+                        <em class="text-muted">&mdash;</em>
+                    {% endif %}
+                {% endif %}
+            </td>
+            <td>
+                {% if item.storage.workflow is not null %}
+                    {{ item.storage.workflow.updatedAt | date }}
+                {% else %}
+                    <em class="text-muted">Нет данных</em>
+                {% endif %}
+            </td>
+            <td style="overflow: visible">
+                <div class="dropdown context">
+                    <span data-toggle="dropdown">
+                        <i class="material-icons btn-block">menu</i>
+                    </span>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        {% if item.storage.isDirectory %}
+                        <a class="dropdown-item" href="{{ path('storage_index', {'uuid': item.uuid}) }}">Открыть</a>
+                        {% endif %}
+                        <a class="dropdown-item" href="{{ path('storage_edit', {'uuid': item.storage.uuid}) }}" data-toggle="modal" data-target="#form-modal">{{ 'table.action.edit' | trans }}</a>
+                        {% if not item.storage.isDirectory %}
+                        <a class="dropdown-item" href="{{ path('storage_download', {'uuid': item.storage.uuid}) }}" data-pjax="false">Скачать</a>
+                        {% endif %}
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="{{ path('storage_delete', {'uuid': item.uuid}) }}" data-toggle="confirm" data-method="delete">{{ 'table.action.delete' | trans }}</a>
+                    </div>
+                </div>
+            </td>
+        </tr>
+    {% else %}
+        <tr>
+            <td colspan="4">{{ 'table.empty' | trans }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+{{ include('paginator.html.twig', {'path': 'storage_index', 'params': {'uuid': node is not null ? node.uuid : 'root'}}) }}

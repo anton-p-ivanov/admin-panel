@@ -1,0 +1,43 @@
+{{ include('search.html.twig', {'reset': path('user_index', {'view': '_selector'})}) }}
+<table class="table table-striped table-borderless table-sm mt-3">
+    <colgroup>
+        <col style="width:30px">
+        <col span="2">
+        <col style="width:150px">
+    </colgroup>
+    <thead>
+    <tr>
+        <th></th>
+        <th>Пользователь</th>
+        <th>E-Mail</th>
+        <th>{{ 'table.head.updated_at' | trans }}</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for user in paginator %}
+        <tr>
+            <td>
+                <input type="radio" name="selection" data-title="{{ user.fullName }}" value="{{ user.uuid }}" title="Выбрать элемент">
+            </td>
+            <td>{{ user.fullName }}</td>
+            <td><a href="mailto:{{ user.email }}">{{ user.email }}</a></td>
+            <td>
+                {% if user.workflow is not null %}
+                    {{ user.workflow.updatedAt | date }}
+                {% else %}
+                    <em class="text-muted">Нет данных</em>
+                {% endif %}
+            </td>
+        </tr>
+    {% else %}
+        <tr>
+            <td colspan="4">{{ 'table.empty' | trans }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{{ include('paginator.html.twig', {
+    'path': 'user_index',
+    'params': {'view': '_selector'},
+    'class': ['pagination-sm']
+}) }}

@@ -1,0 +1,49 @@
+<div class="form-group">
+    {{ form_label(form.options, 'Дополнительные опции', {'translation_domain': false}) }}
+    {{ form_widget(form.options) }}
+    {{ form_errors(form.options) }}
+    <small class="form-text text-muted">
+        Дополнительные HTML-атрибуты в JSON-формате: <code>{"readonly":1,"title":"Sample"}</code>
+    </small>
+</div>
+<div class="row">
+    <div class="col">
+        <div class="form-group">
+            {{ form_label(form.value, 'Значение по-умолчанию', {'translation_domain': false}) }}
+            {{ form_widget(form.value) }}
+            {{ form_errors(form.value) }}
+            <small class="form-text text-muted">
+                Укажите значение, используемое по-умолчанию.
+            </small>
+        </div>
+    </div>
+    <div class="col">
+        <div class="form-group">
+            {{ form_label(form.sort, 'Индекс сортировки') }}
+            {{ form_widget(form.sort) }}
+            {{ form_errors(form.sort) }}
+            <small class="form-text text-muted">
+                {{ 'form.hint.sort'| trans }}
+            </small>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+        <div class="form-group">
+            {{ form_label(form.code, 'Символьный код') }}
+            {{ form_widget(form.code) }}
+            {{ form_errors(form.code) }}
+            <small class="form-text text-muted">
+                {{ 'form.hint.code'| trans }}
+            </small>
+        </div>
+    </div>
+    <div class="col">
+        <div class="form-group">
+            {{ form_label(form.inList, 'Отображать в списке веб-форм') }}
+            {{ form_widget(form.inList) }}
+            {{ form_errors(form.inList) }}
+        </div>
+    </div>
+</div>

@@ -1,0 +1,18 @@
+[
+  {
+    "code": "USD",
+    "title": "Доллар США",
+    "sort": 100,
+    "isDefault": true
+  },
+  {
+    "code": "EUR",
+    "title": "Евро",
+    "sort": 300
+  },
+  {
+    "code": "RUB",
+    "title": "Российский рубль",
+    "sort": 200
+  }
+]

@@ -1,0 +1,24 @@
+{% use "form_div_layout.html.twig" %}
+
+{% block context_menu %}
+<nav class="dropdown context">
+    <span data-toggle="dropdown">
+        <i class="material-icons btn-block">menu</i>
+    </span>
+    <div class="dropdown-menu dropdown-menu-right">
+    {% for item in items %}
+        {% if item.divider is defined %}
+            <div class="dropdown-divider"></div>
+        {% else %}
+            <a class="dropdown-item" href="{{ item.url }}"{% if item.attr is defined %}{% with {attr: item.attr} %}{{ block('attributes') }}{% endwith %}{% endif %}>{{ item.title }}</a>
+        {% endif %}
+    {% endfor %}
+    </div>
+</nav>
+{% endblock %}
+
+{% block context_menu_simple %}
+    {% set items = [
+
+    ] %}
+{% endblock %}

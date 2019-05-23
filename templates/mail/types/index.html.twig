@@ -1,0 +1,18 @@
+{% extends 'main.html.twig' %}
+
+{% block title %}Панель управления / Почта / Типы шаблонов{% endblock %}
+
+{% block content %}
+    <h3 class="page-title">Панель управления / Почта / Типы шаблонов</h3>
+    <div id="mail-types" data-pjax="true">
+        {{ include('mail/types/_index.html.twig') }}
+    </div>
+
+    <div class="modal" id="form-modal" tabindex="-1" role="dialog" data-remote="true"></div>
+    {{ include('confirm.html.twig') }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('js/form.basic') }}
+{% endblock %}

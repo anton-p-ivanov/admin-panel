@@ -1,0 +1,16 @@
+{% extends "empty.html.twig" %}
+
+{% block content %}
+
+    {{ include('training/tests/_form.html.twig', {
+        'title': 'Изменение теста',
+        'params': {
+            'action': path('training_test_edit', {'uuid': test.uuid}),
+            'attr': {
+                'id': 'training-test-form',
+                'data-container': '#training-tests-list'
+            }
+        }}
+    ) }}
+
+{% endblock %}

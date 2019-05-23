@@ -1,0 +1,51 @@
+// the ~ allows you to reference things in node_modules
+@import '../../app';
+
+.element-title {
+    display: inline;
+}
+.element-title-e,
+.element-title-i,
+.element-title-s {
+    position: relative;
+    padding-left: 35px;
+}
+.element-title-e::before,
+.element-title-s::before {
+    content: "\e2c7";
+    font-family: "Material Icons", sans-serif;
+    font-size: 24px;
+    line-height: 1rem;
+    width: 24px;
+    height: 24px;
+    left: 0;
+    top: 0;
+    position: absolute;
+    color: $primary;
+}
+.element-title-i > input[type="radio"],
+.element-title-i > input[type="checkbox"] {
+    position: absolute;
+    left: 5px;
+    top: 1px;
+}
+.element-title-e::before {
+    content: "\e24d";
+    color: $gray-500;
+}
+.element-description {
+    display: inline;
+    padding-left: 12px;
+    color: $gray-500;
+}
+#form-modal .modal-dialog {
+    max-width: 1000px !important;
+}
+#form-modal .tab-pane {
+    height: 500px;
+    overflow-y: auto;
+    margin-left: -20px;
+    margin-right: 0;
+    padding-left: 20px;
+    padding-right: 20px;
+}

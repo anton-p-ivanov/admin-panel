@@ -1,0 +1,26 @@
+[
+  {
+    "title": "Дистрибьютор",
+    "code": "distributor"
+  },
+  {
+    "title": "Золотой партнёр",
+    "code": "gold_partner"
+  },
+  {
+    "title": "Серебряный партнёр",
+    "code": "silver_partner"
+  },
+  {
+    "title": "Платиновый партнёр",
+    "code": "platinum_partner"
+  },
+  {
+    "title": "Технологический партнёр ",
+    "code": "technological_partner"
+  },
+  {
+    "title": "Реселлер",
+    "code": "reseller"
+  }
+]

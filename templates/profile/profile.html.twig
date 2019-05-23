@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ 'form.profile.title' | trans }}
+{% endblock %}
+
+{% block body %}
+
+    <h3>{{ 'form.profile.title'|trans }}</h3>
+
+    <div class="form">
+        {% for message in app.flashes('success') %}
+            <div class="alert alert_success">
+                {{ message | trans }}
+            </div>
+        {% endfor %}
+
+        {{ form_start(form) }}
+        <div class="form__body">
+            {{ form_errors(form) }}
+            {{ form_row(form.username) }}
+            {{ form_row(form.fname) }}
+            {{ form_row(form.lname) }}
+            {{ form_row(form.sname) }}
+            <hr>
+            {{ form_row(form.password.first) }}
+            {{ form_row(form.password.second) }}
+        </div>
+        <div class="form__actions">
+            <button type="submit" class="btn btn_primary">
+                {{ 'form.profile.submit' | trans }}
+            </button>
+        </div>
+        {{ form_end(form) }}
+    </div>
+
+    <div class="profile-info">
+        <h3>{{ 'form.profile.password_history' | trans }}</h3>
+        <ul>
+        {% for userPassword in user.userPasswords %}
+            <li>
+                {{ 'form.profile.password_issued' | trans }}
+                {{ userPassword.getCreatedAt()|date }}
+                {% if userPassword.isExpired() %}
+                ({{ 'form.profile.password_expired' | trans }})
+                {% endif %}
+            </li>
+        {% endfor %}
+        </ul>
+    </div>
+{% endblock %}

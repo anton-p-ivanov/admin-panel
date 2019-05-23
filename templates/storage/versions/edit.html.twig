@@ -1,0 +1,16 @@
+{% extends "empty.html.twig" %}
+
+{% block content %}
+
+    {{ include('storage/versions/_form.html.twig', {
+        'title': 'Переименование файла',
+        'params': {
+            'action': path('storage_version_edit', {'uuid': version.uuid}),
+            'attr': {
+                'id': 'version-form',
+                'data-container': '#storage-versions'
+            }
+        }}
+    ) }}
+
+{% endblock %}

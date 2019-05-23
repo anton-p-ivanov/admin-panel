@@ -1,0 +1,34 @@
+{{ form_start(form, params) }}
+<div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title">{{ title }}</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <div class="form-group">
+                {{ form_label(form.account, 'Компания') }}
+                {{ form_widget(form.account, {'placeholder': 'Выберите компанию ...'}) }}
+                {{ form_errors(form.account) }}
+                <small class="form-text text-muted">
+                    Выберите одну из доступных компаний.
+                </small>
+            </div>
+            <div class="form-group">
+                {{ form_label(form.position, 'Должность') }}
+                {{ form_widget(form.position) }}
+                {{ form_errors(form.position) }}
+                <small class="form-text text-muted">
+                    Допускается не более 255 символов.
+                </small>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Отменить</button>
+            <button type="submit" class="btn btn-primary">Подтвердить</button>
+        </div>
+    </div>
+</div>
+{{ form_end(form) }}

@@ -1,0 +1,12 @@
+{{ include('tabs.html.twig', {'type': 'pills', 'tabs': [
+    {
+        'title': 'Обычный текст',
+        'target': 'body-text',
+        'view': 'mail/templates/_form.body.text.html.twig'
+    },
+    {
+        'title': 'HTML',
+        'target': 'body-html',
+        'view': 'mail/templates/_form.body.html.html.twig'
+    }
+]}) }}

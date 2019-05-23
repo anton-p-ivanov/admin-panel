@@ -1,0 +1,81 @@
+{{ form_start(form, params) }}
+<div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title">{{ title }}</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <div class="form-group">
+                {{ form_widget(form.isActive, {'label': 'form.label.is_active'}) }}
+                <small class="form-text text-muted">
+                    {% set locale = app.request.locale %}
+                    {% if locale == 'ru' %}
+                        Определяет активность сайта, связанных с ним элементов и его публичную доступность.
+                    {% else %}
+                        Sets activity of the site, associated elements and its public availability.
+                    {% endif %}
+                </small>
+            </div>
+            <div class="form-group">
+                {{ form_label(form.title, 'form.label.title') }}
+                {{ form_widget(form.title, {'attr': {'autofocus': true, 'placeholder': 'form.placeholder.title'}}) }}
+                {{ form_errors(form.title) }}
+                <small class="form-text text-muted">
+                    {{ 'form.hint.title' | trans }}
+                </small>
+            </div>
+            <div class="row">
+                <div class="col-sm">
+                    <div class="form-group">
+                        {{ form_label(form.url, 'form.label.url') }}
+                        {{ form_widget(form.url, {'attr': {'placeholder': 'form.placeholder.url'}}) }}
+                        {{ form_errors(form.url) }}
+                        <small class="form-text text-muted">
+                            {{ 'form.hint.url' | trans }}
+                        </small>
+                    </div>
+                </div>
+                <div class="col-sm">
+                    <div class="form-group">
+                        {{ form_label(form.email, 'form.label.email') }}
+                        {{ form_widget(form.email, {'attr': {'placeholder': 'form.placeholder.email'}}) }}
+                        {{ form_errors(form.email) }}
+                        <small class="form-text text-muted">
+                            {{ 'form.hint.email' | trans }}
+                        </small>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm">
+                    <div class="form-group">
+                        {{ form_label(form.code, 'form.label.code') }}
+                        {{ form_widget(form.code, {'attr': {'placeholder': 'form.placeholder.code'}}) }}
+                        {{ form_errors(form.code) }}
+                        <small class="form-text text-muted">
+                            {{ 'form.hint.code' | trans }}
+                        </small>
+                    </div>
+                </div>
+                <div class="col-sm">
+                    <div class="form-group">
+                        {{ form_label(form.sort, 'form.label.sort') }}
+                        {{ form_widget(form.sort) }}
+                        {{ form_errors(form.sort) }}
+                        <small class="form-text text-muted">
+                            {{ 'form.hint.sort' | trans }}
+                        </small>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Отменить</button>
+            <button type="submit" class="btn btn-primary">Подтвердить</button>
+        </div>
+    </div>
+</div>
+{{ form_end(form) }}

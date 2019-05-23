@@ -1,0 +1,32 @@
+<input type="file"
+       name="files[]"
+       multiple="multiple"
+       data-url="http://files.web.host/files/upload"
+       data-hash-url="http://files.web.host/files/hash"
+       data-move-url="http://files.web.host/files/move"
+>
+<div class="modal" id="upload-modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-dialog-centered" role="document" style="max-width: 400px;">
+        <div class="modal-content">
+            <form novalidate>
+                <div class="modal-header">
+                    <h5 class="modal-title">Загрузка файлов <span class="d-none">завершена</span></h5>
+                </div>
+                <div class="modal-body">
+                    <input type="hidden" name="_csrf_token" value="{{ csrf_token('delete') }}">
+                    <div>Загрузка файла <span data-file-index="1">{index}</span> из <span data-file-total>{total}</span>:</div>
+                    <div class="progress" data-file="{file}">
+                        <div class="progress-bar progress-bar-striped progress-bar-animated"></div>
+                    </div>
+                    <ul class="upload-errors"></ul>
+                </div>
+                <div class="modal-body modal-body_done d-none">
+                    <p class="text_center">Все выбранные файлы загружены на сервер!</p>
+                </div>
+                <div class="modal-footer text-center">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

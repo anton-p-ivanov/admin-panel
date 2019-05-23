@@ -1,0 +1,34 @@
+{% extends 'main.html.twig' %}
+
+{% block title %}Обучение / Ответы{% endblock %}
+
+{% block content %}
+    <h3 class="page-title">Обучение / Ответы</h3>
+
+    {% if question is defined %}
+        <div class="alert alert-info">
+            Курс "<a href="{{ path('training_course_index') }}">{{ question.lesson.course.title }}</a>" /
+            Урок "<a href="{{ path('training_lesson_filter', {'uuid': question.lesson.course.uuid}) }}">{{ question.lesson.title }}</a>" /
+            Вопрос "<a href="{{ path('training_question_filter', {'uuid': question.lesson.uuid}) }}">{{ question.title }}"</a>
+        </div>
+    {% endif %}
+
+    {% if not question.hasAnswers(true) %}
+        <div class="alert alert-warning">
+            Необходимо выбрать {% if question.type != 'S' %}хотя бы{% endif %} один правильный ответ!
+        </div>
+    {% endif %}
+
+    <div id="training-answers-list" data-pjax="true">
+        {{ include('training/answers/_index.html.twig') }}
+    </div>
+
+    <div class="modal" id="form-modal" tabindex="-1" role="dialog" data-remote="true"></div>
+
+    {{ include('confirm.html.twig') }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('js/form.basic') }}
+{% endblock %}

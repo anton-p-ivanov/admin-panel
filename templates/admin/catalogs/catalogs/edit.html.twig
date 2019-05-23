@@ -1,0 +1,16 @@
+{% extends "empty.html.twig" %}
+
+{% block content %}
+
+    {{ include('admin/catalogs/catalogs/_form.html.twig', {
+        'title': 'Редактирование справочника',
+        'params': {
+            'action': path('admin_catalog_edit', {'uuid': catalog.uuid}),
+            'attr': {
+                'id': 'catalog-form',
+                'data-container': '#catalogs-list'
+            }
+        }}
+    ) }}
+
+{% endblock %}

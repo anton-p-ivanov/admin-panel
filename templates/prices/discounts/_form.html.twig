@@ -1,0 +1,55 @@
+{{ form_start(form, params) }}
+<div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title">{{ title }}</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <div class="form-group">
+                {{ form_widget(form.isExpired, {'label': 'Активность'}) }}
+                <small class="form-text text-muted">
+                    Определяет активность скидки.
+                </small>
+            </div>
+            <div class="form-group">
+                {{ form_label(form.account, 'Контрагент') }}
+                {{ form_widget(form.account, {'placeholder': '- Любой контрагент -'}) }}
+                {{ form_errors(form.account) }}
+                <small class="form-text text-muted">
+                    Выберите одного из доступных контрагентов.
+                    Если значение не выбрано, скидка применяется ко всем контрагентам.
+                </small>
+            </div>
+            <div class="row">
+                <div class="col-sm">
+                    <div class="form-group">
+                        {{ form_label(form.value, 'Скидка, %') }}
+                        {{ form_widget(form.value, {'attr': {'placeholder': '10.25'}}) }}
+                        {{ form_errors(form.value) }}
+                        <small class="form-text text-muted">
+                            Допустимы численные значения в интервале от 0 до 100.
+                        </small>
+                    </div>
+                </div>
+                <div class="col-sm">
+                    <div class="form-group">
+                        {{ form_label(form.expiredAt, 'Срок действия') }}
+                        {{ form_widget(form.expiredAt, {'attr': {'placeholder': ('now' | date('Y-m-d H:i'))}}) }}
+                        {{ form_errors(form.expiredAt) }}
+                        <small class="form-text text-muted">
+                            Допустимый формат даты: YYYY-MM-DD HH:MM
+                        </small>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Отменить</button>
+            <button type="submit" class="btn btn-primary">Подтвердить</button>
+        </div>
+    </div>
+</div>
+{{ form_end(form) }}

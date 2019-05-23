@@ -1,0 +1,16 @@
+{% extends "empty.html.twig" %}
+
+{% block content %}
+
+    {{ include('training/lessons/_form.html.twig', {
+        'title': 'Изменение урока',
+        'params': {
+            'action': path('training_lesson_edit', {'uuid': lesson.uuid}),
+            'attr': {
+                'id': 'training-lesson-form',
+                'data-container': '#training-lessons-list'
+            }
+        }}
+    ) }}
+
+{% endblock %}

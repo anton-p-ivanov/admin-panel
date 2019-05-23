@@ -1,0 +1,16 @@
+{% extends "empty.html.twig" %}
+
+{% block content %}
+
+    {{ include('training/courses/_form.html.twig', {
+        'title': 'Изменение учебного курса',
+        'params': {
+            'action': path('training_course_edit', {'uuid': course.uuid}),
+            'attr': {
+                'id': 'training-course-form',
+                'data-container': '#training-courses-list'
+            }
+        }}
+    ) }}
+
+{% endblock %}

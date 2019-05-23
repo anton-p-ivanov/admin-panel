@@ -1,0 +1,16 @@
+{% extends "empty.html.twig" %}
+
+{% block content %}
+
+    {{ include('accounts/codes/_form.html.twig', {
+        'title': 'Новый регистрационный код',
+        'params': {
+            'action': path('account_code_new', {'uuid': code.account.uuid}),
+            'attr': {
+                'id': 'account-code-form',
+                'data-container': '#account-codes'
+            }
+        }}
+    ) }}
+
+{% endblock %}

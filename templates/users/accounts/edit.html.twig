@@ -1,0 +1,16 @@
+{% extends "empty.html.twig" %}
+
+{% block content %}
+
+    {{ include('users/accounts/_form.html.twig', {
+        'title': 'Изменение компании',
+        'params': {
+            'action': path('user_account_edit', {'uuid': userAccount.uuid}),
+            'attr': {
+                'id': 'user-account-form',
+                'data-container': '#user-accounts'
+            }
+        }}
+    ) }}
+
+{% endblock %}

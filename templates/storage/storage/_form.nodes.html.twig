@@ -1,0 +1,12 @@
+<div class="form-group">
+    <input type="text" class="form-control" id="node-search" placeholder="Введите название для поиска ...">
+</div>
+{{ form_widget(form.parentNodes) }}
+{{ form_errors(form.parentNodes) }}
+<small class="form-text text-muted">
+    {% if storage.isDirectory %}
+        Выберите одну папку библиотеки файлов.
+    {% else %}
+        Выберите одну или несколько папок библиотеки файлов.
+    {% endif %}
+</small>

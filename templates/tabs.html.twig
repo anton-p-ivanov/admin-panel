@@ -1,0 +1,31 @@
+<ul class="nav {{ type is defined ? 'nav-' ~ type : 'nav-tabs' }}">
+    {% for tab in tabs %}
+        {% if tab.visible is not defined or tab.visible %}
+        <li class="nav-item">
+            {% if tab.disabled is not defined or not tab.disabled %}
+                {% if tab.path is defined %}
+                    <a class="nav-link{{ loop.first ? ' active' : '' }}" data-toggle="tab" data-target="#{{ tab.target }}" href="{{ tab.path }}">{{ tab.title }}</a>
+                {% else %}
+                    <a class="nav-link{{ loop.first ? ' active' : '' }}" data-toggle="tab" href="#{{ tab.target }}">{{ tab.title }}</a>
+                {% endif %}
+            {% else %}
+                <span class="nav-link disabled">{{ tab.title }}</span>
+            {% endif %}
+        </li>
+        {% endif %}
+    {% endfor %}
+</ul>
+
+<div class="tab-content">
+    {% for tab in tabs %}
+        {% if tab.visible is not defined or tab.visible %}
+            {% if tab.view is defined %}
+                <div class="tab-pane{{ loop.first ? ' active' : '' }}" id="{{ tab.target }}">
+                    {{ include(tab.view) }}
+                </div>
+            {% else %}
+                <div class="tab-pane{{ loop.first ? ' active' : '' }}" id="{{ tab.target }}" data-pjax="true" data-push="false"></div>
+            {% endif %}
+        {% endif %}
+    {% endfor %}
+</div>

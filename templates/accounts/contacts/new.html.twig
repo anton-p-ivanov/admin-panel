@@ -1,0 +1,16 @@
+{% extends "empty.html.twig" %}
+
+{% block content %}
+
+    {{ include('accounts/contacts/_form.html.twig', {
+        'title': 'Добавление контакта',
+        'params': {
+            'action': path('account_contact_new', {'uuid': contact.account.uuid}),
+            'attr': {
+                'id': 'account-contact-form',
+                'data-container': '#account-contacts'
+            }
+        }}
+    ) }}
+
+{% endblock %}

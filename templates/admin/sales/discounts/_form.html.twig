@@ -1,0 +1,62 @@
+{{ form_start(form, params) }}
+<div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title">{{ title }}</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <div class="row">
+                <div class="col col-8">
+                    <div class="form-group">
+                        {{ form_label(form.title, 'form.label.title') }}
+                        {{ form_widget(form.title, {'attr': {'autofocus': true}}) }}
+                        {{ form_errors(form.title) }}
+                        <small class="form-text text-muted">
+                            {{ 'form.hint.title' | trans }}
+                        </small>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        {{ form_label(form.value, 'Скидка, %', {'translation_domain': false}) }}
+                        {{ form_widget(form.value) }}
+                        {{ form_errors(form.value) }}
+                        <small class="form-text text-muted">
+                            Допускается целое число от 0 до 100.
+                        </small>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col col-8">
+                    <div class="form-group">
+                        {{ form_label(form.code, 'form.label.code') }}
+                        {{ form_widget(form.code, {'attr': {'placeholder': 'form.placeholder.code'}}) }}
+                        {{ form_errors(form.code) }}
+                        <small class="form-text text-muted">
+                            {{ 'form.hint.code' | trans }}
+                        </small>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        {{ form_label(form.sort, 'form.label.sort') }}
+                        {{ form_widget(form.sort) }}
+                        {{ form_errors(form.sort) }}
+                        <small class="form-text text-muted">
+                            {{ 'form.hint.sort' | trans }}
+                        </small>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Отменить</button>
+            <button type="submit" class="btn btn-primary">Подтвердить</button>
+        </div>
+    </div>
+</div>
+{{ form_end(form) }}

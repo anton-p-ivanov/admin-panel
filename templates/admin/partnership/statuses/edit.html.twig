@@ -1,0 +1,16 @@
+{% extends "empty.html.twig" %}
+
+{% block content %}
+
+    {{ include('admin/partnership/statuses/_form.html.twig', {
+        'title': 'Изменение статуса',
+        'params': {
+            'action': path('partnership_status_edit', {'uuid': status.uuid}),
+            'attr': {
+                'id': 'partnership-status-form',
+                'data-container': '#admin-partnership-statuses-list'
+            }
+        }}
+    ) }}
+
+{% endblock %}

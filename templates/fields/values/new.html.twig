@@ -1,0 +1,16 @@
+{% extends "empty.html.twig" %}
+
+{% block content %}
+
+    {{ include('fields/values/_form.html.twig', {
+        'title': 'Добавление значения',
+        'params': {
+            'action': path('field_value_new', {'uuid': value.field.uuid}),
+            'attr': {
+                'id': 'form-value-form',
+                'data-container': '#field-values'
+            }
+        }}
+    ) }}
+
+{% endblock %}

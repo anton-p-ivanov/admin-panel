@@ -1,0 +1,16 @@
+{% extends "empty.html.twig" %}
+
+{% block content %}
+
+    {{ include('admin/sites/_form.html.twig', {
+        'title': 'Создание сайта',
+        'params': {
+            'action': path('site_new'),
+            'attr': {
+                'id': 'site-form',
+                'data-container': '#admin-sites'
+            }
+        }}
+    ) }}
+
+{% endblock %}

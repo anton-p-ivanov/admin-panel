@@ -1,0 +1,16 @@
+{% extends "empty.html.twig" %}
+
+{% block content %}
+
+    {{ include('forms/forms/_form.html.twig', {
+        'title': 'Изменение веб-формы',
+        'params': {
+            'action': path('form_edit', {'uuid': entity.uuid}),
+            'attr': {
+                'id': 'form-form',
+                'data-container': '#forms-list'
+            }
+        }}
+    ) }}
+
+{% endblock %}

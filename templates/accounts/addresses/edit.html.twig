@@ -1,0 +1,16 @@
+{% extends "empty.html.twig" %}
+
+{% block content %}
+
+    {{ include('accounts/addresses/_form.html.twig', {
+        'title': 'Изменение адреса',
+        'params': {
+            'action': path('account_address_edit', {'uuid': address.uuid, 'account': account.uuid}),
+            'attr': {
+                'id': 'account-address-form',
+                'data-container': '#account-addresses'
+            }
+        }}
+    ) }}
+
+{% endblock %}

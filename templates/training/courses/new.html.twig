@@ -1,0 +1,16 @@
+{% extends "empty.html.twig" %}
+
+{% block content %}
+
+    {{ include('training/courses/_form.html.twig', {
+        'title': 'Создание учебного курса',
+        'params': {
+            'action': path('training_course_new'),
+            'attr': {
+                'id': 'training-course-form',
+                'data-container': '#training-courses-list'
+            }
+        }}
+    ) }}
+
+{% endblock %}

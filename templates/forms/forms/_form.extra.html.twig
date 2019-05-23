@@ -1,0 +1,81 @@
+<div class="row">
+    <div class="col">
+        <div class="form-group">
+            {{ form_label(form.mailTemplate, 'Шаблон почтового сообщения', {'translation_domain': false}) }}
+            {{ form_widget(form.mailTemplate, {'placeholder': '- Не выбрано -', 'translation_domain': false}) }}
+            {{ form_errors(form.mailTemplate) }}
+            <small class="form-text text-muted">
+                Выберите шаблон почтового сообщения, отравляемого при создании нового результата веб-формы. Если шаблон
+                не выбран, почтовое сообщение не отправляется. Как правило, этот шаблон используется для информирования
+                модераторов о создании нового результата веб-формы.
+            </small>
+        </div>
+        <div class="form-group">
+            {{ form_label(form.sort, 'form.label.sort') }}
+            {{ form_widget(form.sort) }}
+            {{ form_errors(form.sort) }}
+            <small class="form-text text-muted">
+                {{ 'form.hint.sort'| trans }}
+            </small>
+        </div>
+        <div class="form-group">
+            {{ form_label(form.code, 'form.label.code') }}
+            {{ form_widget(form.code) }}
+            {{ form_errors(form.code) }}
+            <small class="form-text text-muted">
+                {{ 'form.hint.code'| trans }}
+            </small>
+        </div>
+    </div>
+    <div class="col">
+        <p>Документооборот</p>
+        <table class="table table-striped">
+            <colgroup>
+                <col style="width:150px">
+                <col>
+            </colgroup>
+            <tbody>
+            <tr>
+                <th>Создано</th>
+                <td>
+                    {% if entity.workflow.createdAt %}
+                        {{ entity.workflow.createdAt | date }}
+                    {% else %}
+                        <em class="text-muted">Нет данных</em>
+                    {% endif %}
+                    {% if entity.workflow.created is not null %}
+                        ({{ entity.workflow.created.fullName }})
+                    {% else %}
+                        (System User)
+                    {% endif %}
+                </td>
+            </tr>
+            <tr>
+                <th>Изменено</th>
+                <td>
+                    {% if entity.workflow.updatedAt %}
+                        {{ entity.workflow.updatedAt | date }}
+                    {% else %}
+                        <em class="text-muted">Нет данных</em>
+                    {% endif %}
+                    {% if entity.workflow.updated is not null %}
+                        ({{ entity.workflow.updated.fullName }})
+                    {% else %}
+                        (System User)
+                    {% endif %}
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <div class="form-group">
+            <p>Статус документооборота</p>
+            {{ form_widget(form.status) }}
+            {{ form_errors(form.status) }}
+            <small class="form-text text-muted">
+                Веб-формы в статусе "Черновик" видны и могут быть изменены только Владельцем. Статус "Готов к публикации"
+                позволяет другим пользователям ознакомиться с содержимым веб-формы, но сохраняет её невидимой для публичного
+                просмотра. Опубликованные веб-формы готовы к публичному просмотру и заполнению.
+            </small>
+        </div>
+    </div>
+</div>

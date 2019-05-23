@@ -1,0 +1,11 @@
+twig:
+    paths: ['%kernel.project_dir%/templates']
+    debug: '%kernel.debug%'
+    date:
+        format: d.m.Y H:i
+    strict_variables: '%kernel.debug%'
+    globals:
+        MenuLoader: "@App\\Service\\MenuLoader"
+    form_themes:
+        - 'bootstrap_4_layout.html.twig'
+        - 'form.html.twig'

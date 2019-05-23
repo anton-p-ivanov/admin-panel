@@ -1,0 +1,58 @@
+<div class="form-group">
+    {{ form_widget(form.isActive, {'label': 'mail.template.label.isActive'}) }}
+    <small class="form-text text-muted">
+        {{ 'mail.template.hint.isActive' | trans({}, 'mail') }}
+    </small>
+</div>
+<div class="form-group">
+    {{ form_label(form.subject, 'mail.template.label.subject') }}
+    {{ form_widget(form.subject, {'attr': {'autofocus': true}}) }}
+    {{ form_errors(form.subject) }}
+    <small class="form-text text-muted">
+        {{ 'mail.template.hint.subject'| trans({}, 'mail') }}
+    </small>
+</div>
+<div class="row">
+    <div class="col-sm">
+        <div class="form-group">
+            {{ form_label(form.sender, 'mail.template.label.sender') }}
+            {{ form_widget(form.sender, {'attr': {'placeholder': 'По-умолчанию для выбранного сайта'}, 'translation_domain': false}) }}
+            {{ form_errors(form.sender) }}
+            <small class="form-text text-muted">
+                {{ 'form.hint.email'| trans }}
+            </small>
+        </div>
+    </div>
+    <div class="col-sm">
+        <div class="form-group">
+            {{ form_label(form.recipient, 'mail.template.label.recipient') }}
+            {{ form_widget(form.recipient, {'attr': {'placeholder': 'mail.template.placeholder.recipient'}}) }}
+            {{ form_errors(form.recipient) }}
+            <small class="form-text text-muted">
+                {{ 'form.hint.email'| trans }}
+            </small>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm">
+        <div class="form-group">
+            {{ form_label(form.replyTo, 'mail.template.label.replyTo') }}
+            {{ form_widget(form.replyTo, {'attr': {'placeholder': 'mail.template.placeholder.replyTo'}}) }}
+            {{ form_errors(form.replyTo) }}
+            <small class="form-text text-muted">
+                {{ 'form.hint.email'| trans }}
+            </small>
+        </div>
+    </div>
+    <div class="col-sm">
+        <div class="form-group">
+            {{ form_label(form.copyTo, 'mail.template.label.copyTo') }}
+            {{ form_widget(form.copyTo, {'attr': {'placeholder': 'mail.template.placeholder.copyTo'}}) }}
+            {{ form_errors(form.copyTo) }}
+            <small class="form-text text-muted">
+                {{ 'form.hint.email'| trans }}
+            </small>
+        </div>
+    </div>
+</div>

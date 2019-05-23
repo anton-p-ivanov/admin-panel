@@ -1,0 +1,13 @@
+{% set params = params is defined ? params : {} %}
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{{ path('storage_index', {'uuid': 'root'} | merge(params)) }}">Библиотека файлов</a></li>
+        {% for node in path %}
+            {% if loop.last %}
+                <li class="breadcrumb-item active" aria-current="page">{{ node.storage.title }}</li>
+            {% else %}
+                <li class="breadcrumb-item"><a href="{{ path('storage_index', {'uuid': node.uuid} | merge(params)) }}">{{ node.storage.title }}</a></li>
+            {% endif %}
+        {% endfor %}
+    </ol>
+</nav>

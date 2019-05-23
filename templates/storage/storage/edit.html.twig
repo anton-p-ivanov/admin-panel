@@ -1,0 +1,16 @@
+{% extends "empty.html.twig" %}
+
+{% block content %}
+
+    {{ include('storage/storage/_form.html.twig', {
+        'title': 'Изменение ' ~ (storage.isDirectory ? 'папки' : 'файла'),
+        'params': {
+            'action': path('storage_edit', {'uuid': storage.uuid}),
+            'attr': {
+                'id': 'storage-form',
+                'data-container': '#storage-list'
+            }
+        }}
+    ) }}
+
+{% endblock %}

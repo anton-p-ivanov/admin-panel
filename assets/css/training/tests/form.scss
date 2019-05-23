@@ -1,0 +1,67 @@
+// the ~ allows you to reference things in node_modules
+@import '../../app';
+
+.test-limits,
+.test-questions {
+    margin-bottom: 2.5rem;
+    & > h4 {
+        border-bottom: solid $hr-border-width $hr-border-color;
+        margin-bottom: $hr-margin-y;
+    }
+}
+.test-questions-lesson {
+    position: relative;
+    padding-top: .25rem;
+}
+.test-questions {
+    .form-check {
+        padding-top: $table-cell-padding;
+        padding-bottom: $table-cell-padding;
+        padding-left: 2.5rem;
+    }
+    .form-check:nth-child(odd) {
+        background-color: $table-accent-bg;
+    }
+    .form-check-label {
+        margin-left: 1.25rem;
+    }
+    .collapse,
+    .collapsing {
+        margin-left: 2.5rem;
+    }
+}
+.collapse-toggle {
+    position: absolute;
+    display: block;
+    line-height: 1em;
+    right: 0;
+    top: 2px;
+
+    .material-icons:nth-child(1) {
+        display: none;
+    }
+    .material-icons:nth-child(2) {
+        display: block;
+    }
+
+    &:hover {
+        text-decoration: none;
+    }
+
+    &.collapsed {
+        .material-icons:nth-child(1) {
+            display: block;
+        }
+        .material-icons:nth-child(2) {
+            display: none;
+        }
+    }
+}
+#form-questions {
+    height: 450px;
+    overflow-y: auto;
+    padding-right: 1rem;
+}
+#form-questions .card-header {
+    padding-left: 2.5rem;
+}

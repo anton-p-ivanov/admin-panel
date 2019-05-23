@@ -1,0 +1,12 @@
+<div class="form-actions">
+    {{ form_widget(form.submit, {
+        'label': 'form.button.submit',
+        'translation_domain': 'messages',
+        'attr': {'class': 'btn btn-primary'}
+    }) }}
+    {{ form_widget(form.apply, {
+        'label': 'form.button.apply',
+        'translation_domain': 'messages'
+    }) }}
+    <a class="btn btn-link float-right" href="{{ url }}">{{ 'form.button.return'| trans }}</a>
+</div>

@@ -1,0 +1,16 @@
+{% extends "empty.html.twig" %}
+
+{% block content %}
+
+    {{ include('training/questions/_form.html.twig', {
+        'title': 'Изменение вопроса',
+        'params': {
+            'action': path('training_question_edit', {'uuid': question.uuid}),
+            'attr': {
+                'id': 'training-question-form',
+                'data-container': '#training-questions-list'
+            }
+        }}
+    ) }}
+
+{% endblock %}

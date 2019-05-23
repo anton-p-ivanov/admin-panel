@@ -1,0 +1,16 @@
+{% extends "empty.html.twig" %}
+
+{% block content %}
+
+    {{ include('forms/statuses/_form.html.twig', {
+        'title': 'Добавление статуса',
+        'params': {
+            'action': path('form_status_new', {'uuid': status.form.uuid}),
+            'attr': {
+                'id': 'form-status-form',
+                'data-container': '#form-statuses'
+            }
+        }}
+    ) }}
+
+{% endblock %}

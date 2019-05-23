@@ -1,0 +1,10 @@
+{% extends 'main.html.twig' %}
+
+{% block title %}Справочники{% endblock %}
+
+{% block content %}
+    <h3 class="page-title">Справочники</h3>
+    <div id="catalogs-list">
+        {{ include('catalogs/catalogs/_dashboard.html.twig') }}
+    </div>
+{% endblock %}

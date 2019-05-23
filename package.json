@@ -1,0 +1,24 @@
+{
+  "license": "UNLICENSED",
+  "private": true,
+  "scripts": {
+    "dev-server": "encore dev-server --host static.web.host --port 443 --https --disable-host-check",
+    "dev": "encore dev",
+    "watch": "encore dev --watch",
+    "build": "encore production"
+  },
+  "dependencies": {
+    "blueimp-file-upload": "^9.30.0",
+    "bootstrap": "^4.3.1",
+    "jquery": "^3.4.1",
+    "jquery-pjax": "^2.0.1",
+    "jquery-ui": "^1.12.1",
+    "material-design-icons": "^3.0.1",
+    "popper.js": "1.15.0"
+  },
+  "devDependencies": {
+    "@symfony/webpack-encore": "^0.27.0",
+    "node-sass": "^4.12.0",
+    "sass-loader": "^7.1.0"
+  }
+}

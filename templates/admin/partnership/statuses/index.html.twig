@@ -1,0 +1,21 @@
+{% extends 'main.html.twig' %}
+
+{% block title %}Панель управления / Партнёрство / Статусы{% endblock %}
+
+{% block content %}
+    <h3 class="page-title">Панель управления / Партнёрство / Статусы</h3>
+    <div id="admin-partnership-statuses-list" data-pjax="true">
+        {{ include('admin/partnership/statuses/_index.html.twig') }}
+    </div>
+
+    {% for item in ['form', 'discount'] %}
+        <div class="modal" id="{{ item }}-modal" tabindex="-1" role="dialog" data-remote="true"></div>
+    {% endfor %}
+
+    {{ include('confirm.html.twig') }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('js/form.basic') }}
+{% endblock %}

@@ -1,0 +1,58 @@
+{{ form_start(form, params) }}
+<div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title">{{ title }}</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            {{ include('tabs.html.twig', {'tabs': [
+                {
+                    'title': 'Элемент',
+                    'target': 'form-base',
+                    'view': 'catalogs/elements/_form.base.html.twig'
+                },
+                {
+                    'title': 'Контент',
+                    'target': 'form-content',
+                    'view': 'catalogs/elements/_form.content.html.twig',
+                },
+                {
+                    'title': 'Свойства',
+                    'target': 'form-properties',
+                    'view': 'catalogs/elements/_form.properties.html.twig',
+                    'visible': element.catalog.fields
+                },
+                {
+                    'title': 'Цены',
+                    'target': 'form-prices',
+                    'view': 'catalogs/elements/_form.prices.html.twig',
+                    'visible': element.catalog.isTrading
+                },
+                {
+                    'title': 'Скидки',
+                    'target': 'form-discounts',
+                    'path': element.price ? path('price_discount_index', {'uuid': element.price.uuid}) : null,
+                    'visible': element.catalog.isTrading
+                },
+                {
+                    'title': 'Уровни доступа',
+                    'target': 'form-access',
+                    'view': 'catalogs/elements/_form.access.html.twig',
+                },
+                {
+                    'title': 'Дополнительно',
+                    'target': 'form-extra',
+                    'view': 'catalogs/elements/_form.extra.html.twig'
+                }
+            ]}) }}
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Отменить</button>
+            <button type="submit" class="btn btn-primary">Подтвердить</button>
+        </div>
+    </div>
+</div>
+{{ form_end(form) }}

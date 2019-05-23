@@ -1,0 +1,26 @@
+{% extends 'main.html.twig' %}
+
+{% block title %}Библиотека файлов{% endblock %}
+
+{% block content %}
+    <h3 class="page-title">Библиотека файлов</h3>
+    <div id="storage-list" data-pjax="true">
+        {{ include('storage/storage/_index.html.twig') }}
+    </div>
+
+    <div class="modal" id="form-modal" tabindex="-1" role="dialog" data-remote="true"></div>
+    <div class="modal" id="version-modal" tabindex="-1" role="dialog" data-remote="true"></div>
+
+    {{ include('storage/storage/upload.html.twig') }}
+    {{ include('confirm.html.twig') }}
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('css/storage/storage/index') }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('js/storage/storage/index') }}
+{% endblock %}

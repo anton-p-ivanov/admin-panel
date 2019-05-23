@@ -1,0 +1,16 @@
+{% extends "empty.html.twig" %}
+
+{% block content %}
+
+    {{ include('workflow/statuses/_form.html.twig', {
+        'title': 'Создание нового статуса',
+        'params': {
+            'action': path('workflow_status_new'),
+            'attr': {
+                'id': 'workflow-status-form',
+                'data-container': '#workflow-statuses-list'
+            }
+        }}
+    ) }}
+
+{% endblock %}

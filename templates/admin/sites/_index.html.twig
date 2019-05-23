@@ -1,0 +1,64 @@
+<div class="btn-toolbar justify-content-between" role="toolbar">
+    <div class="btn-toolbar-container">
+        <div class="btn-group mr-2" role="group">
+            <a class="btn btn-outline-primary" href="{{ path('site_new') }}" data-toggle="modal" data-target="#form-modal">
+                {{ 'table.toolbar.create' | trans }}
+            </a>
+        </div>
+    </div>
+</div>
+<br>
+<table class="table table-striped table-borderless">
+    <colgroup>
+        <col span="2">
+        <col style="width:70px" span="2">
+        <col style="width:150px">
+        <col style="width:50px">
+    </colgroup>
+    <thead>
+        <tr>
+            <th>{{ 'table.head.title' | trans }}</th>
+            <th>{{ 'table.head.url' | trans }}</th>
+            <th>{{ 'table.head.is_active' | trans }}</th>
+            <th>{{ 'table.head.sort' | trans }}</th>
+            <th>{{ 'table.head.updated_at' | trans }}</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for site in paginator %}
+        <tr>
+            <td><a href="{{ path('site_edit', {'uuid': site.uuid}) }}" data-toggle="modal" data-target="#form-modal">{{ site.title }}</a></td>
+            <td>{{ site.url }}</td>
+            <td>{{ (site.isActive ? 'yes' : 'no') | trans }}</td>
+            <td>{{ site.sort }}</td>
+            <td>
+                {% if site.workflow is not null %}
+                    {{ site.workflow.updatedAt | date }}
+                {% else %}
+                    <em class="text-muted">Нет данных</em>
+                {% endif %}
+            </td>
+            <td style="overflow: visible">
+                <div class="dropdown context">
+                    <span data-toggle="dropdown">
+                        <i class="material-icons btn-block">menu</i>
+                    </span>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <a class="dropdown-item" href="{{ path('site_edit', {'uuid': site.uuid}) }}" data-toggle="modal" data-target="#form-modal">{{ 'table.action.edit' | trans }}</a>
+                        <a class="dropdown-item" href="{{ path('site_copy', {'uuid': site.uuid}) }}" data-toggle="modal" data-target="#form-modal">{{ 'table.action.copy' | trans }}</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="{{ path('site_delete', {'uuid': site.uuid}) }}" data-toggle="confirm" data-method="delete">{{ 'table.action.delete' | trans }}</a>
+                    </div>
+                </div>
+            </td>
+        </tr>
+    {% else %}
+        <tr>
+            <td colspan="6">{{ 'table.empty' | trans }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+{{ include('paginator.html.twig', {'path': 'site_index'}) }}

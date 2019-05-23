@@ -1,0 +1,16 @@
+{% extends "empty.html.twig" %}
+
+{% block content %}
+
+    {{ include('catalogs/elements/_form_' ~ (element.isSection ? 'section' : 'element') ~ '.html.twig', {
+        'title': 'Создание ' ~ (element.isSection ? 'раздела' : 'элемента'),
+        'params': {
+            'action': path('catalog_element_new', {'uuid': element.catalog.tree.uuid, 'type': element.isSection ? 'section' : 'element'}),
+            'attr': {
+                'id': 'catalog-element-form',
+                'data-container': '#elements-list'
+            }
+        }}
+    ) }}
+
+{% endblock %}

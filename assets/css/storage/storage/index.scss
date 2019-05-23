@@ -1,0 +1,43 @@
+// the ~ allows you to reference things in node_modules
+@import '../../app';
+
+.storage-title {
+    display: inline;
+}
+.storage-title-f,
+.storage-title-i,
+.storage-title-d {
+    position: relative;
+    padding-left: 35px;
+}
+.storage-title-f::before,
+.storage-title-d::before {
+    content: "\e2c7";
+    font-family: "Material Icons", sans-serif;
+    font-size: 24px;
+    line-height: 1rem;
+    width: 24px;
+    height: 24px;
+    left: 0;
+    top: 0;
+    position: absolute;
+    color: $primary;
+}
+.storage-title-f::before {
+    content: "\e24d";
+    color: $gray-500;
+}
+.storage-title-i > input[type="radio"],
+.storage-title-i > input[type="checkbox"] {
+    position: absolute;
+    left: 5px;
+    top: 1px;
+}
+.storage-description {
+    display: inline;
+    padding-left: 12px;
+    color: $gray-500;
+}
+input[type="file"] {
+    display: none;
+}

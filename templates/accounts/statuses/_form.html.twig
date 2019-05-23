@@ -1,0 +1,40 @@
+{{ form_start(form, params) }}
+<div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title">{{ title }}</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <div class="form-group">
+                {{ form_widget(form.isExpired, {'label': 'Активность'}) }}
+                <small class="form-text text-muted">
+                    Определяет активность партнёрского статуса для выбранного контрагента.
+                </small>
+            </div>
+            <div class="form-group">
+                {{ form_label(form.status, 'Статус') }}
+                {{ form_widget(form.status, {'placeholder': 'Выберите статус ...'}) }}
+                {{ form_errors(form.status) }}
+                <small class="form-text text-muted">
+                    Выберите один из доступных партнёрских статусов.
+                </small>
+            </div>
+            <div class="form-group">
+                {{ form_label(form.expiredAt, 'Действует до') }}
+                {{ form_widget(form.expiredAt, {'attr': {'placeholder': 'Срок действия не ограничен'}}) }}
+                {{ form_errors(form.expiredAt) }}
+                <small class="form-text text-muted">
+                    Укажите срок действия партнёрского статуса для выбранного контрагента.
+                </small>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Отменить</button>
+            <button type="submit" class="btn btn-primary">Подтвердить</button>
+        </div>
+    </div>
+</div>
+{{ form_end(form) }}

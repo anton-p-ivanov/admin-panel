@@ -1,0 +1,79 @@
+{% extends "empty.html.twig" %}
+
+{% block content %}
+    <div class="btn-toolbar justify-content-between" role="toolbar">
+        <div class="btn-toolbar-container">
+            <div class="btn-group mr-2" role="group">
+                <a class="btn btn-outline-primary" data-pjax="false" data-toggle="upload" data-target="#storage-versions" data-url="{{ path('storage_version_index', {'uuid': storage.uuid}) }}" href="{{ path('storage_version_upload', {'uuid': storage.uuid}) }}">Добавить</a>
+            </div>
+        </div>
+    </div>
+    <br>
+    <table class="table table-striped table-borderless">
+        <colgroup>
+            <col>
+            <col style="width:150px">
+            <col style="width:70px">
+            <col style="width:150px">
+            <col style="width:50px">
+        </colgroup>
+        <thead>
+        <tr>
+            <th>Файл</th>
+            <th class="text-right">Размер</th>
+            <th class="text-center">Акт.</th>
+            <th>Загружен</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for version in paginator %}
+            <tr>
+                <td>
+                    <a href="{{ path('storage_version_edit', {'uuid': version.uuid}) }}" data-toggle="modal" data-target="#version-modal">{{ version.file.name }}</a>
+                </td>
+                <td class="text-right">
+                    {% if version.file is not null %}
+                        {{ version.file.size | size }}
+                    {% else %}
+                        <em class="text-muted">&mdash;</em>
+                    {% endif %}
+                </td>
+                <td class="text-center">{{ version.isActive ? "Да" : "Нет" }}</td>
+                <td>
+                    {% if version.file.workflow is not null %}
+                        {{ version.file.workflow.updatedAt | date }}
+                    {% else %}
+                        <em class="text-muted">Нет данных</em>
+                    {% endif %}
+                </td>
+                <td style="overflow: visible">
+                    <div class="dropdown context">
+                        <span data-toggle="dropdown">
+                            <i class="material-icons btn-block">menu</i>
+                        </span>
+                        <div class="dropdown-menu dropdown-menu-right">
+                        {% if not version.isActive %}
+                            <a class="dropdown-item" href="{{ path('storage_version_activate', {'uuid': version.uuid}) }}" data-toggle="confirm" data-method="post">Активировать</a>
+                            <div class="dropdown-divider"></div>
+                        {% endif %}
+                            <a class="dropdown-item" href="{{ path('storage_version_edit', {'uuid': version.uuid}) }}" data-toggle="modal" data-target="#version-modal">Переименовать</a>
+                            <a class="dropdown-item" href="{{ path('storage_version_download', {'uuid': version.uuid}) }}" data-pjax="false">Скачать</a>
+                        {% if not version.isActive %}
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="{{ path('storage_version_delete', {'uuid': version.uuid}) }}" data-toggle="confirm" data-method="delete">{{ 'table.action.delete' | trans }}</a>
+                        {% endif %}
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">{{ 'table.empty' | trans }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    {{ include('paginator.html.twig', {'path': 'storage_version_index', 'params': {'uuid': storage.uuid}}) }}
+{% endblock %}

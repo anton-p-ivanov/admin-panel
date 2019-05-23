@@ -1,0 +1,41 @@
+<div id="app-toolbar" class="toolbar toolbar_app">
+    <div class="toolbar__group">
+        <div class="toolbar__item">
+            <a href="#" class="toolbar__link">
+                <i class="mdi mdi-menu"></i>
+            </a>
+        </div>
+    </div>
+    <div class="toolbar__group toolbar__group_title">Welcome to Symfony</div>
+    <div class="toolbar__group">
+        {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+            <div class="toolbar__item">
+                <a href="#" class="toolbar__link" data-toggle="dropdown">
+                    My profile <i class="mdi mdi-chevron-down"></i>
+                </a>
+                <ul class="dropdown">
+                    <li class="dropdown__item">
+                        <a href="{{ relative_path('/profile/settings') }}" class="dropdown__link">Settings</a>
+                    </li>
+                    <li class="dropdown__item">
+                        <span class="dropdown__divider"></span>
+                    </li>
+                    <li class="dropdown__item">
+                        <a href="{{ path('logout') }}" class="dropdown__link">Log out</a>
+                    </li>
+                </ul>
+            </div>
+        {% else %}
+            <div class="toolbar__item">
+                <div class="toolbar__item">
+                    <a href="#" class="toolbar__link">Log in</a>
+                </div>
+            </div>
+        {% endif %}
+        <div class="toolbar__item">
+            <a href="#" class="toolbar__link">
+                <i class="mdi mdi-help-circle"></i>
+            </a>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,19 @@
+<hr>
+<div class="row">
+    <div class="col">
+        Создано: {{ entity.workflow.createdAt | date }}
+        {% if entity.workflow.created is not null %}
+            ({{ entity.workflow.created.fullName }})
+        {% else %}
+            (System User)
+        {% endif %}
+    </div>
+    <div class="col">
+        Изменено: {{ entity.workflow.updatedAt | date }}
+        {% if entity.workflow.updated is not null %}
+            ({{ entity.workflow.updated.fullName }})
+        {% else %}
+            (System User)
+        {% endif %}
+    </div>
+</div>

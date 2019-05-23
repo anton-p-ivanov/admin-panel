@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="ru" datatype="plaintext" original="file.ext">
+        <body>
+            <!-- Labels -->
+            <trans-unit id="training.question.form.label.type">
+                <source>training.question.form.label.type</source>
+                <target>Тип вопроса</target>
+            </trans-unit>
+            <trans-unit id="training.question.form.label.value">
+                <source>training.question.form.label.value</source>
+                <target>Вес вопроса</target>
+            </trans-unit>
+            <trans-unit id="training.answers.form.label.is_valid">
+                <source>training.answers.form.label.is_valid</source>
+                <target>Правильный ответ</target>
+            </trans-unit>
+            <trans-unit id="training.answers.form.label.answer">
+                <source>training.answers.form.label.answer</source>
+                <target>Ответ на вопрос</target>
+            </trans-unit>
+            <trans-unit id="training.test.form.label.is_random_questions">
+                <source>training.test.form.label.is_random_questions</source>
+                <target>Произвольные вопросы</target>
+            </trans-unit>
+            <trans-unit id="training.test.form.label.is_random_answers">
+                <source>training.test.form.label.is_random_answers</source>
+                <target>Произвольные ответы</target>
+            </trans-unit>
+            <trans-unit id="training.test.form.label.limit_attempts">
+                <source>training.test.form.label.limit_attempts</source>
+                <target>Попытки</target>
+            </trans-unit>
+            <trans-unit id="training.test.form.label.limit_time">
+                <source>training.test.form.label.limit_time</source>
+                <target>Время (мин)</target>
+            </trans-unit>
+            <trans-unit id="training.test.form.label.limit_percent">
+                <source>training.test.form.label.limit_percent</source>
+                <target>Процент (%)</target>
+            </trans-unit>
+            <trans-unit id="training.test.form.label.limit_value">
+                <source>training.test.form.label.limit_value</source>
+                <target>Баллы</target>
+            </trans-unit>
+            <trans-unit id="training.test.form.label.limit_questions">
+                <source>training.test.form.label.limit_questions</source>
+                <target>Вопросы</target>
+            </trans-unit>
+
+            <!-- Placeholders -->
+            <trans-unit id="training.question.form.placeholder.type">
+                <source>training.question.form.placeholder.type</source>
+                <target>Выберите тип вопроса</target>
+            </trans-unit>
+
+            <!-- Question types -->
+            <trans-unit id="training.question.types.single">
+                <source>training.question.types.single</source>
+                <target>Одиночный выбор</target>
+            </trans-unit>
+            <trans-unit id="training.question.types.multiple">
+                <source>training.question.types.multiple</source>
+                <target>Множественный выбор</target>
+            </trans-unit>
+            <trans-unit id="training.question.types.text">
+                <source>training.question.types.text</source>
+                <target>Текстовый ответ</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

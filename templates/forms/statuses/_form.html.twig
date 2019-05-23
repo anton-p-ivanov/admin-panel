@@ -1,0 +1,62 @@
+{{ form_start(form, params) }}
+<div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title">{{ title }}</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <div class="form-group">
+                {{ form_widget(form.isDefault, {'label': 'По-умолчанию', 'translation_domain': false}) }}
+                <small class="form-text text-muted">
+                    Определяет, будет ли этот статус присвоен автоматически всем новым результатам веб-формы.
+                </small>
+            </div>
+            <div class="form-group">
+                {{ form_label(form.title, 'form.label.title') }}
+                {{ form_widget(form.title, {'attr': {'autofocus': true}}) }}
+                {{ form_errors(form.title) }}
+                <small class="form-text text-muted">
+                    {{ 'form.hint.title'| trans }}
+                </small>
+            </div>
+            <div class="form-group">
+                {{ form_label(form.description, 'form.label.description') }}
+                {{ form_widget(form.description, {'attr': {'rows': 5}}) }}
+                {{ form_errors(form.description) }}
+                <small class="form-text text-muted">
+                    {{ 'form.hint.description'| trans }}
+                </small>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        {{ form_label(form.sort, 'form.label.sort') }}
+                        {{ form_widget(form.sort) }}
+                        {{ form_errors(form.sort) }}
+                        <small class="form-text text-muted">
+                            {{ 'form.hint.sort'| trans }}
+                        </small>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        {{ form_label(form.mailTemplate, 'Шаблон почтового сообщения', {'translation_domain': false}) }}
+                        {{ form_widget(form.mailTemplate, {'placeholder': '- Не выбрано -', 'translation_domain': false}) }}
+                        {{ form_errors(form.mailTemplate) }}
+                        <small class="form-text text-muted">
+                            Выберите шаблон почтового сообщения, отравляемого при смене статуса результата веб-формы на данный.
+                        </small>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Отменить</button>
+            <button type="submit" class="btn btn-primary">Подтвердить</button>
+        </div>
+    </div>
+</div>
+{{ form_end(form) }}

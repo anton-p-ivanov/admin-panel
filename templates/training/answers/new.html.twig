@@ -1,0 +1,16 @@
+{% extends "empty.html.twig" %}
+
+{% block content %}
+
+    {{ include('training/answers/_form.html.twig', {
+        'title': 'Добавление ответа',
+        'params': {
+            'action': path('training_answer_new', {'uuid': answer.question.uuid}),
+            'attr': {
+                'id': 'training-answer-form',
+                'data-container': '#training-answers-list'
+            }
+        }}
+    ) }}
+
+{% endblock %}

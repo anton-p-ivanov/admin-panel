@@ -1,0 +1,10 @@
+<div class="form-group">
+    {{ form_widget(form.template, {'attr': {'rows': 15}}) }}
+    {{ form_errors(form.template) }}
+    <small class="form-text text-muted">
+        Разрешено использовать разметку HTML. Коды полей формы должны быть заключены в двойные фигурные скобки,
+        например <code>{{ '{{FORM_FIELD_CODE}}' }}</code>. Код <code>{{ '{{FORM_FIELD_AUTH}}' }}</code> зарезервирован для блока
+        аутентификации пользователя, а код <code>{{ '{{FORM_FIELD_CAPTCHA}}' }}</code> — для блока проверочного кода
+        (captcha).
+    </small>
+</div>
